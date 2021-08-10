@@ -1,5 +1,5 @@
 module.exports = {
-    chainWebpack: config => {
+  chainWebpack: config => {
     config.resolve.alias.set('vue', '@vue/compat')
 
     config.module
@@ -15,6 +15,13 @@ module.exports = {
           }
         }
       })
+  },
+  configureWebpack: {
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
+    }
   },
   devServer: {
     proxy: {

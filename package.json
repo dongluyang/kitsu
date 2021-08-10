@@ -14,7 +14,6 @@
     "test:functional": "$(npm bin)/cypress open"
   },
   "dependencies": {
-    "@vue/babel-preset-app": "^4.5.13",
     "@vue/compat": "^3.2.0",
     "async": "3.2.0",
     "bowser": "2.11.0",

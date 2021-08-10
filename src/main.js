@@ -68,5 +68,4 @@ app.config.globalProperties.$locale = {
   }
 }
 
-// app.config.keyCodes = { backspace: 8 }
 app.mount('#app')
