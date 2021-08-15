@@ -9,7 +9,7 @@
       }"
       @click.prevent="onSelected"
     >
-      <light-entity-thumbnail
+      <entity-thumbnail
         width="150px"
         height="103px"
         :preview-file-id="previewFile.id"
@@ -34,13 +34,13 @@
  */
 import { mapGetters } from 'vuex'
 
-import LightEntityThumbnail from '@/components/widgets/LightEntityThumbnail'
+import EntityThumbnail from '@/components/widgets/EntityThumbnail'
 
 export default {
   name: 'revision-preview',
 
   components: {
-    LightEntityThumbnail
+    EntityThumbnail
   },
 
   data () {

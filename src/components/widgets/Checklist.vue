@@ -13,8 +13,8 @@
       class="flexrow-item"
       @click="toggleEntryChecked(entry)"
     >
-      <check-square-icon class="icon" v-if="entry.checked" />
-      <square-icon class="icon" v-else />
+      <icon name="check-square" class="icon" v-if="entry.checked" />
+      <icon name="square" class="icon" v-else />
     </span>
     <textarea-autosize
       type="text"
@@ -28,21 +28,19 @@
       @keyup.down.native="focusNext(index)"
       :disabled="disabled"
       v-model="entry.text"
-    ></textarea-autosize>
+    />
   </div>
 </div>
 </template>
 
 <script>
-
-import { CheckSquareIcon, SquareIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'checklist',
 
   components: {
-    CheckSquareIcon,
-    SquareIcon
+    Icon
   },
 
   props: {

@@ -3,7 +3,8 @@
   class="notification-bell nav-item"
 >
   <router-link :to="{name: 'notifications'}">
-    <bell-icon
+    <icon
+      name="bell"
       :class="notificationBellClass"
     />
     <span
@@ -27,12 +28,12 @@
  * a badge giving the number of unread notifications.
  */
 import { mapGetters } from 'vuex'
-import { BellIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'notification-bell',
   components: {
-    BellIcon
+    Icon
   },
 
   props: {

@@ -1,7 +1,6 @@
 <template>
 <tr
   class="datatable-row"
-  :key="taskType.id"
 >
   <task-type-cell
     :task-type="taskType"

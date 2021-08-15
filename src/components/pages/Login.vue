@@ -19,7 +19,7 @@
                 @keyup.enter="confirmLogIn"
                 v-focus >
               <span class="icon">
-                <mail-icon width=20 height=20 />
+                <icon name="mail" width=20 height=20 />
               </span>
             </p>
           </div>
@@ -32,7 +32,7 @@
                 @input="updatePassword"
                 @keyup.enter="confirmLogIn">
               <span class="icon">
-                <lock-icon width=20 height=20 />
+                <icon name="lock" width=20 height=20 />
               </span>
             </p>
           </div>
@@ -67,14 +67,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { MailIcon, LockIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'login',
 
   components: {
-    MailIcon,
-    LockIcon
+    Icon
   },
 
   computed: {

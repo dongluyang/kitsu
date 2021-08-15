@@ -27,13 +27,13 @@
 
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'todos'}">
-               <check-icon size="0.9x" />
+               <icon name="check" size="0.9x" />
                {{ $t("tasks.my_tasks") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'open-productions'}">
-               <film-icon size="0.9x" />
+               <icon name="film" size="0.9x" />
                {{ $t("productions.open_productions") }}
              </router-link>
            </p>
@@ -44,28 +44,28 @@
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'productions'}">
-               <film-icon size="0.9x" />
+               <icon name="film" size="0.9x" />
                {{ $t("productions.title") }}
              </router-link>
            </p>
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'people'}">
-               <users-icon size="0.9x" />
+               <icon name="users" size="0.9x" />
                {{ $t("people.title") }}
              </router-link>
            </p>
 
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'timesheets'}">
-               <clock-icon size="0.9x" />
+               <icon name="clock" size="0.9x" />
                {{ $t("timesheets.title") }}
              </router-link>
          </p>
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'main-schedule'}">
-               <calendar-icon size="0.9x" />
+               <icon name="calendar" size="0.9x" />
                {{ $t("schedule.title_main") }}
              </router-link>
            </p>
@@ -75,43 +75,43 @@
            <h2>{{ $t('main.admin')}}</h2>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'departments'}">
-               <hexagon-icon size="0.9x" />
+               <icon name="hexagon" size="0.9x" />
                {{ $t("departments.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/task-types">
-               <copy-icon size="0.9x" />
+               <icon name="copy" size="0.9x" />
                {{ $t("task_types.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/task-status" class="task-status-link">
-               <award-icon size="0.9x" />
+               <icon name="award" size="0.9x" />
                {{ $t("task_status.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/asset-types">
-               <box-icon size="0.9x" />
+               <icon name="box" size="0.9x" />
                {{ $t("asset_types.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'custom-actions'}">
-               <git-pull-request-icon size="0.9x" />
+               <icon name="git-pull-request" size="0.9x" />
                {{ $t("custom_actions.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'settings'}">
-               <settings-icon size="0.9x" />
+               <icon name="settings" size="0.9x" />
                {{ $t("settings.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'logs'}">
-               <list-icon size="0.9x" />
+               <icon name="list" size="0.9x" />
                {{ $t("logs.title") }}
              </router-link>
            </p>
@@ -129,36 +129,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  AwardIcon,
-  BoxIcon,
-  CopyIcon,
-  CalendarIcon,
-  CheckIcon,
-  ClockIcon,
-  FilmIcon,
-  GitPullRequestIcon,
-  HexagonIcon,
-  ListIcon,
-  SettingsIcon,
-  UsersIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'sidebar',
   components: {
-    AwardIcon,
-    BoxIcon,
-    CopyIcon,
-    CalendarIcon,
-    CheckIcon,
-    ClockIcon,
-    FilmIcon,
-    GitPullRequestIcon,
-    HexagonIcon,
-    ListIcon,
-    SettingsIcon,
-    UsersIcon
+    Icon
   },
 
   data () {

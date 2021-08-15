@@ -8,7 +8,7 @@
             class="back-link flexrow-item"
             :to="backPath"
           >
-            <chevron-left-icon />
+            <icon name="chevron-left" />
           </router-link>
           <task-type-name
             class="flexrow-item"
@@ -217,12 +217,12 @@ import {
 
 import { formatListMixin } from '@/components/mixins/format'
 
-import { ChevronLeftIcon } from 'vue-feather-icons'
 import ButtonSimple from '@/components/widgets/ButtonSimple'
 import DateField from '@/components/widgets/DateField'
 import Combobox from '@/components/widgets/Combobox'
 import ComboboxNumber from '@/components/widgets/ComboboxNumber'
 import EstimationHelper from '@/components/pages/tasktype/EstimationHelper'
+import Icon from '@/components/widgets/Icon'
 import Schedule from '@/components/pages/schedule/Schedule'
 import SearchField from '@/components/widgets/SearchField'
 import SearchQueryList from '@/components/widgets/SearchQueryList'
@@ -235,7 +235,7 @@ export default {
   mixins: [formatListMixin, searchMixin],
   components: {
     ButtonSimple,
-    ChevronLeftIcon,
+    Icon,
     Combobox,
     ComboboxNumber,
     DateField,
@@ -310,7 +310,7 @@ export default {
     window.addEventListener('resize', this.resetScheduleHeight)
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.resetScheduleHeight)
   },
 

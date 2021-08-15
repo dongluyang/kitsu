@@ -31,11 +31,11 @@
       </div>
 
       <template
+        :key="'task-type-' + index"
         v-for="(taskListObject, index) in [assetTaskTypes, shotTaskTypes]"
         v-else
       >
         <div
-          :key="index"
         >
           <h2 class="section-title">
             {{ taskListObject.title }}

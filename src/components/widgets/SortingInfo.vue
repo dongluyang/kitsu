@@ -1,11 +1,11 @@
-<template functional>
+<template>
 <div
   class="has-text-right"
-  v-if="props.sorting.length > 0"
+  v-if="sorting.length > 0"
 >
-  {{ props.label }} {{ props.sorting[0].name }}
+  {{ label }} {{ sorting[0].name }}
   <a
-    @click="listeners['clear-sorting']()"
+    @click="$emit('clear-sorting')"
   >x</a>
 </div>
 </template>
@@ -13,7 +13,6 @@
 <script>
 export default {
   name: 'sorting-info',
-  functional: true,
 
   props: {
     label: {

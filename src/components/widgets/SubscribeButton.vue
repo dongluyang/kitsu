@@ -4,11 +4,13 @@
   :title="buttonTitle"
   @click="$emit('click')"
 >
-  <eye-icon
+  <icon
+    name="eye"
     class="icon is-small only-icon"
     v-if="subscribed"
   />
-  <eye-off-icon
+  <icon
+    name="eye-off"
     class="icon is-small only-icon"
     v-else
   />
@@ -16,16 +18,12 @@
 </template>
 
 <script>
-import {
-  EyeIcon,
-  EyeOffIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'subscribe-button',
   components: {
-    EyeIcon,
-    EyeOffIcon
+    Icon
   },
   props: {
     subscribed: {

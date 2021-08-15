@@ -31,7 +31,7 @@
             />
           </div>
           <div class="flexrow-item">
-            <chevron-right-icon class="mt05" size="1.4x" />
+            <icon name="chevron-right" class="mt05" size="1.4x" />
           </div>
           <div class="flexrow-item subitem">
             <topbar-section-list
@@ -41,7 +41,7 @@
             />
           </div>
           <div class="flexrow-item" v-if="isEpisodeContext">
-            <chevron-right-icon class="mt05" size="1.4x" />
+            <icon name="chevron-right" class="mt05" size="1.4x" />
           </div>
           <div class="flexrow-item subitem">
             <topbar-episode-list
@@ -90,7 +90,7 @@
         </router-link>
         <div class="nav-item">
           <button  data-canny-changelog class="changelog-button" >
-            <zap-icon />
+            <icon name="zap" />
           </button>
         </div>
         <notification-bell />
@@ -178,7 +178,7 @@
         </li>
         <hr />
         <li class="flexrow" @click="onLogoutClicked">
-          <log-out-icon class="flexrow-item" size="1x" />
+          <icon name="log-out" class="flexrow-item" size="1x" />
           <span class="flexrow-item">{{ $t("main.logout") }}</span>
         </li>
       </ul>
@@ -194,12 +194,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  LogOutIcon,
-  ZapIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 import TopbarEpisodeList from '@/components/tops/TopbarEpisodeList'
 import TopbarProductionList from '@/components/tops/TopbarProductionList'
@@ -213,16 +208,13 @@ import { version } from '../../../package.json'
 export default {
   name: 'topbar',
   components: {
-    ChevronLeftIcon,
-    ChevronRightIcon,
-    LogOutIcon,
+    Icon,
     NotificationBell,
     PeopleAvatar,
     TopbarEpisodeList,
     TopbarProductionList,
     TopbarSectionList,
-    ShortcutModal,
-    ZapIcon
+    ShortcutModal
   },
 
   data () {

@@ -19,7 +19,7 @@
               v-focus
             />
             <span class="icon">
-              <mail-icon width=20 height=20 />
+              <icon name="mail" width=20 height=20 />
             </span>
           </p>
         </div>
@@ -65,13 +65,13 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import { MailIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'reset-password',
 
   components: {
-    MailIcon
+    Icon
   },
 
   data () {

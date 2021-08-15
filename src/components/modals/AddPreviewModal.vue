@@ -52,12 +52,14 @@
       </p>
 
       <p class="upload-previews" v-if="forms">
-        <template v-for="(form, i) in forms">
-          <hr :key="'separator-' + i"/>
+        <template
+          :key="'preview-' + i"
+          v-for="(form, i) in forms"
+        >
+          <hr />
           <img
             alt="uploaded file"
             :src="getURL(form)"
-            :key="i"
             v-if="isImage(form)"
           >
           <video
@@ -68,14 +70,12 @@
             loop
             muted
             :src="getURL(form)"
-            :key="i"
             v-else-if="isVideo(form)"
           />
           <iframe
             class="is-fullwidth"
             frameborder="0"
             :src="getURL(form)"
-            :key="i"
             v-else
           />
         </template>
@@ -181,7 +181,7 @@ export default {
     window.addEventListener('paste', this.onPaste, false)
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('paste', this.onPaste)
   }
 }

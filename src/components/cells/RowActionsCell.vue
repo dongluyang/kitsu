@@ -7,7 +7,7 @@
     @click="$emit('history-clicked')"
     v-if="!hideHistory"
   >
-    <clock-icon class="icon is-small only-icon" />
+    <icon name="clock" class="icon is-small only-icon" />
   </button>
 
   <button
@@ -17,7 +17,7 @@
     @click="$emit('edit-clicked')"
     v-if="!hideEdit && !entry.canceled"
   >
-    <edit-icon class="icon is-small only-icon" />
+    <icon name="edit" class="icon is-small only-icon" />
   </button>
 
   <button
@@ -27,7 +27,7 @@
     @click="$emit('restore-clicked')"
     v-if="entry.canceled"
   >
-    <rotate-ccw-icon class="icon is-small only-icon" />
+    <icon name="rotate-ccw" class="icon is-small only-icon" />
   </button>
 
   <button
@@ -37,7 +37,7 @@
     @click="$emit('delete-clicked')"
     v-if="!hideDelete && !entry.canceled && isCurrentUserAdmin"
   >
-    <trash-icon class="icon is-small only-icon" />
+    <icon name="trash" class="icon is-small only-icon" />
   </button>
 
   <button
@@ -47,27 +47,19 @@
     @click="$emit('delete-clicked')"
     v-else-if="!hideDelete"
   >
-    <trash-icon class="icon is-small only-icon" />
+    <icon name="trash" class="icon is-small only-icon" />
   </button>
 </td>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  ClockIcon,
-  EditIcon,
-  RotateCcwIcon,
-  TrashIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'row-actions-cell',
   components: {
-    ClockIcon,
-    EditIcon,
-    RotateCcwIcon,
-    TrashIcon
+    Icon
   },
 
   props: {

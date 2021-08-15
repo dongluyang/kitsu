@@ -97,7 +97,7 @@ export default {
     this.setPicturePath()
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.onWindowResize)
   },
 

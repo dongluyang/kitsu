@@ -9,20 +9,18 @@
   :title="$t(isShowAssignations ? 'tasks.hide_assignations' : 'tasks.show_assignations')"
   @click="toggleAssignations"
 >
-  <users-icon class="icon is-small" />
+  <icon name="users" class="icon is-small" />
 </button>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  UsersIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'show-assignations-button',
   components: {
-    UsersIcon
+    Icon
   },
 
   props: {},

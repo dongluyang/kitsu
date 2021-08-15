@@ -51,7 +51,7 @@
           key="new-playlist-button"
           v-if="isCurrentUserManager && !isListToggled"
         >
-          <plus-icon class="icon is-small" />
+          <icon name="icon" class="icon is-small" />
           {{ $t('playlists.new_playlist') }}
         </button>
 
@@ -80,7 +80,7 @@
             </span>
             </div>
             <div class="has-text-centered" v-else>
-              <light-entity-thumbnail
+              <entity-thumbnail
                 :preview-file-id="playlist.first_preview_file_id"
                 type="previews"
                 width="38px"
@@ -117,7 +117,7 @@
             v-for="playlist in lastPlaylistsCreated"
           >
             <div class="has-text-centered">
-              <light-entity-thumbnail
+              <entity-thumbnail
                 :preview-file-id="playlist.first_preview_file_id"
                 type="previews"
                 width="auto"
@@ -145,7 +145,7 @@
             v-for="playlist in lastPlaylistsUpdated"
           >
             <div class="has-text-centered">
-              <light-entity-thumbnail
+              <entity-thumbnail
                 :preview-file-id="playlist.first_preview_file_id"
                 type="previews"
                 width="auto"
@@ -222,7 +222,7 @@
                 class="close-button"
                 @click="toggleAddEntities"
               >
-                <x-icon />
+                <icon name="x" />
               </a>
             </div>
             <div class="flexrow">
@@ -328,7 +328,7 @@
                     @click.prevent="addEntityToPlaylist(asset)"
                     v-for="asset in typeAssets.filter(a => !a.canceled)"
                   >
-                      <light-entity-thumbnail
+                      <entity-thumbnail
                         :preview-file-id="asset.preview_file_id"
                         width="150px"
                         height="100px"
@@ -369,7 +369,7 @@
                     @click.prevent="addEntityToPlaylist(shot)"
                     v-for="shot in sequenceShots.filter(s => !s.canceled)"
                   >
-                    <light-entity-thumbnail
+                    <entity-thumbnail
                       :preview-file-id="shot.preview_file_id"
                       width="150px"
                       height="100px"
@@ -419,8 +419,6 @@
 import firstBy from 'thenby'
 import moment from 'moment-timezone'
 import { mapGetters, mapActions } from 'vuex'
-import { PlusIcon, XIcon } from 'vue-feather-icons'
-
 import { DEFAULT_NB_FRAMES_PICTURE } from '@/lib/playlist'
 import { formatDate } from '@/lib/time'
 import { getPlaylistPath } from '@/lib/path'
@@ -436,7 +434,8 @@ import Combobox from '@/components/widgets/Combobox'
 import ComboboxTaskType from '@/components/widgets/ComboboxTaskType'
 import EditPlaylistModal from '@/components/modals/EditPlaylistModal'
 import ErrorText from '@/components/widgets/ErrorText'
-import LightEntityThumbnail from '@/components/widgets/LightEntityThumbnail'
+import EntityThumbnail from '@/components/widgets/EntityThumbnail'
+import Icon from '@/components/widgets/Icon'
 import PageSubtitle from '@/components/widgets/PageSubtitle'
 import PlaylistPlayer from './playlists/PlaylistPlayer'
 import SearchField from '@/components/widgets/SearchField'
@@ -452,13 +451,12 @@ export default {
     ComboboxTaskType,
     ErrorText,
     EditPlaylistModal,
-    LightEntityThumbnail,
+    EntityThumbnail,
+    Icon,
     PageSubtitle,
     PlaylistPlayer,
-    PlusIcon,
     SearchField,
-    Spinner,
-    XIcon
+    Spinner
   },
 
   data () {

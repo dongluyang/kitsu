@@ -20,7 +20,7 @@
           v-if="currentProduction"
         />
       </div>
-      <chevron-down-icon class="down-icon flexrow-item"/>
+      <icon name="chevron-down" class="down-icon flexrow-item"/>
     </div>
     <div
       class="select-input"
@@ -61,9 +61,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ChevronDownIcon } from 'vue-feather-icons'
 
 import ComboboxMask from '@/components/widgets/ComboboxMask'
+import Icon from '@/components/widgets/Icon'
 import ProductionName from '@/components/widgets/ProductionName'
 
 import { getProductionPath } from '@/lib/path'
@@ -72,8 +72,8 @@ export default {
   name: 'topbar-production-list',
 
   components: {
-    ChevronDownIcon,
     ComboboxMask,
+    Icon,
     ProductionName
   },
 

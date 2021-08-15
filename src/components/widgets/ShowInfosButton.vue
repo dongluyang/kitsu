@@ -9,20 +9,18 @@
   :title="$t(isShowInfos ? 'tasks.hide_infos' : 'tasks.show_infos')"
   @click="toggleInfos"
 >
-  <database-icon class="icon is-small" />
+  <icon name="database" class="icon is-small" />
 </button>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  DatabaseIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'show-infos-button',
   components: {
-    DatabaseIcon
+    Icon
   },
 
   props: {

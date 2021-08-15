@@ -84,16 +84,22 @@
         </tr>
 
         <template
+          :key="entry.id"
           v-for="entry in entries"
         >
           <tr
-            :key="entry.id"
             class="datatable-row"
           >
 
             <td class="expander" @click="toggleExpanded(entry.id)">
-              <chevron-right-icon v-if="isRetakes && expanded[entry.id] !== true" />
-              <chevron-down-icon v-if="isRetakes && expanded[entry.id] === true" />
+              <icon
+                name="chevron-right"
+                v-if="isRetakes && expanded[entry.id] !== true"
+              />
+              <icon
+                name="chevron-down"
+                v-if="isRetakes && expanded[entry.id] === true"
+              />
             </td>
 
             <td class="name datatable-row-header">
@@ -238,10 +244,6 @@
 <script>
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
-import {
-  ChevronDownIcon,
-  ChevronRightIcon
-} from 'vue-feather-icons'
 
 import { entityListMixin } from '@/components/mixins/entity_list'
 import { range } from '@/lib/time'
@@ -252,6 +254,7 @@ import {
   getRetakeChartData
 } from '@/lib/stats'
 import DescriptionCell from '@/components/cells/DescriptionCell'
+import Icon from '@/components/widgets/Icon'
 import RowActionsCell from '@/components/cells/RowActionsCell'
 import StatsCell from '@/components/cells/StatsCell'
 import TableInfo from '@/components/widgets/TableInfo'
@@ -262,8 +265,7 @@ export default {
 
   components: {
     DescriptionCell,
-    ChevronDownIcon,
-    ChevronRightIcon,
+    Icon,
     RowActionsCell,
     StatsCell,
     TableInfo

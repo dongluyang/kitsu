@@ -11,7 +11,7 @@
             <span class="flexrow-item hide-small-screen">
               {{ currentMenuLabel }}
             </span>
-            <chevron-down-icon class="flexrow-item" />
+            <icon name="chevron-down" class="flexrow-item" />
           </div>
         </div>
 
@@ -344,8 +344,7 @@
               class="clear-selection flexrow flexrow-item"
               @click="clearSelection"
             >
-              <x-icon class="flexrow-item">
-              </x-icon>
+              <icon name="x" class="flexrow-item" />
               <span class="flexrow-item hide-small-screen">
                 {{ $t('main.clear_selection') }}
               </span>
@@ -457,10 +456,10 @@
 import { mapGetters, mapActions } from 'vuex'
 import { sortPeople } from '@/lib/sorting'
 
-import { ChevronDownIcon, XIcon } from 'vue-feather-icons'
 import Combobox from '@/components/widgets/Combobox'
 import ComboboxModel from '@/components/widgets/ComboboxModel'
 import ComboboxStatus from '@/components/widgets/ComboboxStatus'
+import Icon from '@/components/widgets/Icon'
 import ViewPlaylistModal from '@/components/modals/ViewPlaylistModal'
 import NotificationBell from '@/components/widgets/NotificationBell'
 import PeopleField from '@/components/widgets/PeopleField'
@@ -470,14 +469,13 @@ export default {
   name: 'action-topbar',
 
   components: {
-    ChevronDownIcon,
     Combobox,
     ComboboxModel,
     ComboboxStatus,
+    Icon,
     NotificationBell,
     PeopleField,
     Spinner,
-    XIcon,
     ViewPlaylistModal
   },
 

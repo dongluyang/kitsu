@@ -6,7 +6,7 @@
         class="flexrow-item has-text-centered back-link"
         :to="assetsPath"
       >
-        <chevron-left-icon />
+        <icon name="chevron-left" />
       </router-link>
       <entity-thumbnail
         class="asset-thumbnail flexrow-item"
@@ -190,26 +190,26 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import { ChevronLeftIcon } from 'vue-feather-icons'
-import ButtonSimple from '../widgets/ButtonSimple'
-import DescriptionCell from '../cells/DescriptionCell'
-import EditAssetModal from '../modals/EditAssetModal'
-import EntityTaskList from '../lists/EntityTaskList'
-import EntityThumbnail from '../widgets/EntityThumbnail'
-import PageTitle from '../widgets/PageTitle'
-import PageSubtitle from '../widgets/PageSubtitle'
-import TableInfo from '../widgets/TableInfo'
-import TaskInfo from '../sides/TaskInfo'
+import ButtonSimple from '@/components/widgets/ButtonSimple'
+import DescriptionCell from '@/components/cells/DescriptionCell'
+import EditAssetModal from '@/components/modals/EditAssetModal'
+import EntityTaskList from '@/components/lists/EntityTaskList'
+import EntityThumbnail from '@/components/widgets/EntityThumbnail'
+import Icon from '@/components/widgets/Icon'
+import PageTitle from '@/components/widgets/PageTitle'
+import PageSubtitle from '@/components/widgets/PageSubtitle'
+import TableInfo from '@/components/widgets/TableInfo'
+import TaskInfo from '@/components/sides/TaskInfo'
 
 export default {
   name: 'asset',
   components: {
     ButtonSimple,
-    ChevronLeftIcon,
     DescriptionCell,
     EditAssetModal,
     EntityThumbnail,
     EntityTaskList,
+    Icon,
     PageSubtitle,
     PageTitle,
     TableInfo,

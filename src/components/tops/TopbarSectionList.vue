@@ -15,7 +15,7 @@
       >
        {{ currentSectionLabel }}
       </div>
-      <chevron-down-icon class="down-icon flexrow-item"/>
+      <icon name="chevron-down" class="down-icon flexrow-item" />
     </div>
     <div
       class="select-input"
@@ -46,18 +46,18 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ChevronDownIcon } from 'vue-feather-icons'
 
 import { getProductionPath } from '@/lib/path'
 
 import ComboboxMask from '@/components/widgets/ComboboxMask'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'topbar-section-menu',
 
   components: {
-    ChevronDownIcon,
-    ComboboxMask
+    ComboboxMask,
+    Icon
   },
 
   data () {

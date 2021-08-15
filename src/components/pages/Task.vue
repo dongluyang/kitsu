@@ -10,7 +10,7 @@
           :to="entityPage"
           class="flexrow-item has-text-centered back-link"
         >
-          <chevron-left-icon />
+          <icon name="chevron-left" />
         </router-link>
         <div class="title flexrow-item">
           <router-link :to="taskEntityPath">
@@ -139,7 +139,7 @@
                 @click="setPreview"
                 v-if="isPreviews && isCurrentUserManager"
               >
-                <image-icon class="icon" />
+                <icon name="icon" class="icon" />
                 <span class="text">
                   {{ $t('tasks.set_preview') }}
                 </span>
@@ -256,16 +256,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  ChevronLeftIcon,
-  ImageIcon
-} from 'vue-feather-icons'
 
 import AddComment from '../widgets/AddComment'
 import AddPreviewModal from '../modals/AddPreviewModal'
 import Comment from '../widgets/Comment'
 import DeleteModal from '../modals/DeleteModal'
 import EditCommentModal from '../modals/EditCommentModal'
+import Icon from '../widgets/Icon'
 import PeopleAvatar from '../widgets/PeopleAvatar'
 import PreviewRow from '../widgets/PreviewRow'
 import Spinner from '../widgets/Spinner'
@@ -280,10 +277,9 @@ export default {
     AddComment,
     AddPreviewModal,
     Comment,
-    ChevronLeftIcon,
     DeleteModal,
     EditCommentModal,
-    ImageIcon,
+    Icon,
     PeopleAvatar,
     PreviewRow,
     PreviewPlayer,

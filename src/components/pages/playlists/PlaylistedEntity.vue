@@ -14,9 +14,9 @@
           @click.prevent="onRemoveClick"
           v-if="isCurrentUserManager"
         >
-          <x-icon />
+          <icon name="x" />
         </span>
-        <light-entity-thumbnail
+        <entity-thumbnail
           width="150px"
           height="103px"
           :preview-file-id="previewFileId"
@@ -73,18 +73,18 @@
  */
 import firstBy from 'thenby'
 import { mapGetters } from 'vuex'
-import { XIcon } from 'vue-feather-icons'
 
-import Combobox from '../../widgets/Combobox'
-import LightEntityThumbnail from '../../widgets/LightEntityThumbnail'
+import Combobox from '@/components/widgets/Combobox'
+import EntityThumbnail from '@/components/widgets/EntityThumbnail'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'playlisted-entity',
 
   components: {
     Combobox,
-    LightEntityThumbnail,
-    XIcon
+    EntityThumbnail,
+    Icon
   },
 
   data () {

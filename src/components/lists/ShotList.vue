@@ -150,7 +150,7 @@
 
             <table-metadata-selector-menu
               ref="headerMetadataSelectorMenu"
-              :metadataDisplayHeaders.sync="metadataDisplayHeaders"
+              :metadataDisplayHeaders="metadataDisplayHeaders"
               :descriptors="shotMetadataDescriptors"
               namespace="shots"
               :exclude="{

@@ -39,7 +39,8 @@
           {{ shortDate }}
         </span>
         <div class="flexrow-item menu-wrapper">
-          <chevron-down-icon
+          <icon
+            name="chevron-down"
             class="menu-icon"
             @click="toggleCommentMenu"
           />
@@ -61,7 +62,8 @@
           >
             <span>
               {{ $t('comments.comment_from_client') }}
-              <copy-icon
+              <icon
+                name="copy"
                 class="copy-icon"
                 size="1.1x"
                 @click="$emit('duplicate-comment', comment)"
@@ -110,7 +112,11 @@
               target="_blank"
               v-for="attachment in fileAttachments"
             >
-              <paperclip-icon size="1x" class="flexrow-item attachment-icon"/>
+              <icon
+                name="paperclip"
+                size="1x"
+                class="flexrow-item attachment-icon"
+              />
               <span class="flexrow-item">
               {{ attachment.name }}
               </span>
@@ -130,7 +136,7 @@
               type="button"
               disabled="comment.person_id !== user.id"
             >
-              <thumbs-up-icon size="1x"/>
+              <icon name="thumbs-up" size="1x"/>
               <span>{{ comment.acknowledgements.length }}</span>
             </button>
           </div>
@@ -181,7 +187,8 @@
         {{ shortDate }}
       </span>
       <div class="flexrow-item menu-wrapper">
-        <chevron-down-icon
+        <icon
+          name="chevron-down"
           class="menu-icon"
           @click="toggleCommentMenu"
         />
@@ -210,12 +217,7 @@ import { formatDate, parseDate } from '@/lib/time'
 import colors from '@/lib/colors'
 import files from '@/lib/files'
 
-import {
-  ChevronDownIcon,
-  CopyIcon,
-  PaperclipIcon,
-  ThumbsUpIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 import CommentMenu from './CommentMenu.vue'
 import PeopleAvatar from './PeopleAvatar.vue'
 import PeopleName from './PeopleName.vue'
@@ -226,13 +228,10 @@ export default {
   name: 'comment',
   components: {
     Checklist,
-    ChevronDownIcon,
-    CopyIcon,
     CommentMenu,
-    PaperclipIcon,
+    Icon,
     PeopleAvatar,
     PeopleName,
-    ThumbsUpIcon,
     ValidationTag
   },
 

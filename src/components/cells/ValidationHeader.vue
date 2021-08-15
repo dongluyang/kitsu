@@ -32,7 +32,8 @@
           : '' }}
       </span>
 
-      <chevron-down-icon
+      <icon
+        name="chevron-down"
         @click="$emit('show-header-menu', $event)"
         class="header-icon flexrow-item"
       />
@@ -41,9 +42,7 @@
 </template>
 
 <script>
-import {
-  ChevronDownIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -66,7 +65,7 @@ export default {
       default: 'assets'
     }
   },
-  components: { ChevronDownIcon },
+  components: { Icon },
   computed: {
     ...mapGetters([
       'currentEpisode',

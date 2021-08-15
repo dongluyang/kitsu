@@ -1,30 +1,20 @@
 module.exports = {
-  configureWebpack: {
-    resolve: {
-      alias: {
-        vue: '@vue/compat'
-      }
-    },
-    module: {
-      rules: [
-        {
-          test: /\.vue$/,
-          loader: 'vue-loader',
-          options: {
-            compilerOptions: {
-              compatConfig: {
-                MODE: 3
-              }
+    chainWebpack: config => {
+    config.resolve.alias.set('vue', '@vue/compat')
+
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        return {
+          ...options,
+          compilerOptions: {
+            compatConfig: {
+              MODE: 3
             }
           }
         }
-      ]
-    },
-    optimization: {
-      splitChunks: {
-        chunks: 'all'
-      }
-    }
+      })
   },
   devServer: {
     proxy: {

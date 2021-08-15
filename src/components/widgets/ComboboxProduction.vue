@@ -20,7 +20,7 @@
           v-if="currentProduction"
         />
       </div>
-      <chevron-down-icon class="down-icon flexrow-item"/>
+      <icon name="chevron-down" class="down-icon flexrow-item"/>
     </div>
     <div
       class="select-input"
@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ChevronDownIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 import ComboboxMask from '@/components/widgets/ComboboxMask'
 import ProductionName from '@/components/widgets/ProductionName'
@@ -60,7 +60,7 @@ export default {
   name: 'combobox-production',
 
   components: {
-    ChevronDownIcon,
+    Icon,
     ComboboxMask,
     ProductionName
   },

@@ -91,10 +91,10 @@
            {{ newsTotal }} {{ $t('news.news') }}
            </span>
           <template
+            :key="'stat-value-' + stat.name.toLowerCase()"
             v-for="stat in renderedStats"
           >
             <span
-              :key="'stat-value-' + stat.name.toLowerCase()"
               class="tag stat-tag"
               :title="stat.name + ': ' + stat.value"
               :style="{
@@ -414,7 +414,7 @@ export default {
     }
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('keydown', this.onKeyDown)
   },
 

@@ -41,8 +41,8 @@
             class="expand flexrow-item mr1"
             @click="expandRootElement(rootElement)"
           >
-            <chevron-right-icon v-if="!rootElement.expanded"/>
-            <chevron-down-icon v-else />
+            <icon name="chevron-right" v-if="!rootElement.expanded"/>
+            <icon name="chevron-down" v-else />
           </span>
           <span
             class="avatar flexrow-item"
@@ -386,8 +386,8 @@ import {
   parseDate
 } from '@/lib/time'
 
-import { ChevronRightIcon, ChevronDownIcon } from 'vue-feather-icons'
 import EditMilestoneModal from '@/components/modals/EditMilestoneModal'
+import Icon from '@/components/widgets/Icon'
 import PeopleAvatar from '@/components/widgets/PeopleAvatar'
 import ProductionName from '@/components/widgets/ProductionName'
 import Spinner from '@/components/widgets/Spinner'
@@ -396,9 +396,8 @@ export default {
   name: 'schedule',
   mixins: [formatListMixin],
   components: {
-    ChevronDownIcon,
-    ChevronRightIcon,
     EditMilestoneModal,
+    Icon,
     PeopleAvatar,
     ProductionName,
     Spinner
@@ -472,7 +471,7 @@ export default {
     window.addEventListener('resize', this.resetScheduleSize)
   },
 
-  destroyed () {
+  unmounted () {
     document.removeEventListener('mouseup', this.stopBrowsing)
     document.removeEventListener('mousemove', this.onMouseMove)
     window.removeEventListener('resize', this.resetScheduleSize)

@@ -2,7 +2,7 @@
 <div class="people-timesheet-info">
   <div class="close">
     <router-link class="close-button" :to="closeRoute">
-      <x-icon />
+      <icon name="x" />
     </router-link>
   </div>
 
@@ -45,7 +45,7 @@
 import moment from 'moment-timezone'
 
 import { mapGetters, mapActions } from 'vuex'
-import { XIcon } from 'vue-feather-icons'
+import Icon from '../widgets/Icon'
 import PageTitle from '../widgets/PageTitle'
 import PeopleAvatar from '../widgets/PeopleAvatar'
 import QuotaShotList from '../lists/QuotaShotList'
@@ -55,7 +55,7 @@ export default {
   name: 'shot-quota-info',
 
   components: {
-    XIcon,
+    Icon,
     PageTitle,
     PeopleAvatar,
     QuotaShotList

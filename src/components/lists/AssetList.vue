@@ -153,7 +153,7 @@
 
             <table-metadata-selector-menu
               ref="headerMetadataSelectorMenu"
-              :metadataDisplayHeaders.sync="metadataDisplayHeaders"
+              :metadataDisplayHeaders="metadataDisplayHeaders"
               :descriptors="assetMetadataDescriptors"
               :exclude="{
                 timeSpent: !isAssetTime,

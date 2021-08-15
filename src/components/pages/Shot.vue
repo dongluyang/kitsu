@@ -6,7 +6,7 @@
         class="flexrow-item has-text-centered back-link"
         :to="getShotsRoute"
       >
-        <chevron-left-icon />
+        <icon name="chevron-left" />
       </router-link>
       <entity-thumbnail
         class="shot-thumbnail flexrow-item"
@@ -182,7 +182,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { ChevronLeftIcon } from 'vue-feather-icons'
 
 import { episodifyRoute } from '@/lib/path'
 
@@ -191,6 +190,7 @@ import DescriptionCell from '@/components/cells/DescriptionCell'
 import EditShotModal from '@/components/modals/EditShotModal'
 import EntityThumbnail from '@/components/widgets/EntityThumbnail'
 import EntityTaskList from '@/components/lists/EntityTaskList'
+import Icon from '@/components/widgets/Icon'
 import PageTitle from '@/components/widgets/PageTitle'
 import PageSubtitle from '@/components/widgets/PageSubtitle'
 import TableInfo from '@/components/widgets/TableInfo'
@@ -200,7 +200,7 @@ export default {
   name: 'shot',
   components: {
     ButtonSimple,
-    ChevronLeftIcon,
+    Icon,
     DescriptionCell,
     EditShotModal,
     EntityThumbnail,

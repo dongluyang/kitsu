@@ -65,7 +65,7 @@
           {{ thumbnailInfo.parentName }} / {{ thumbnailInfo.name }}
         </span>
         <spinner v-if="loading[thumbnailInfo.id]" :size="10" />
-        <check-icon v-if="uploaded[thumbnailInfo.id]" />
+        <icon name="check" v-if="uploaded[thumbnailInfo.id]" />
       </div>
 
       <modal-footer
@@ -84,7 +84,7 @@
 import { mapGetters, mapActions } from 'vuex'
 import { modalMixin } from './base_modal'
 
-import { CheckIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 import stringHelpers from '../../lib/string'
 import assetStore from '../../store/modules/assets'
@@ -100,9 +100,9 @@ export default {
   mixins: [modalMixin],
 
   components: {
-    CheckIcon,
     ComboboxTaskType,
     FileUpload,
+    Icon,
     ModalFooter,
     Spinner
   },

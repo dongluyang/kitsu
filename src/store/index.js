@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
 import * as getters from './getters'
 
@@ -22,8 +21,6 @@ import taskTypes from './modules/tasktypes'
 import taskStatus from './modules/taskstatus'
 import tasks from './modules/tasks'
 
-Vue.use(Vuex)
-
 const modules = {
   assetTypes,
   assets,
@@ -45,8 +42,10 @@ const modules = {
   user
 }
 
-export default new Vuex.Store({
+const store = createStore({
   getters,
   strict: process.env.NODE_ENV !== 'production',
   modules: modules
 })
+
+export default store

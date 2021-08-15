@@ -29,7 +29,7 @@
           {{ currentStatus.short_name }}
         </span>
       </div>
-      <chevron-down-icon class="down-icon flexrow-item"/>
+      <icon name="chevron-down" class="down-icon flexrow-item"/>
     </div>
     <div
       class="select-input"
@@ -63,16 +63,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ChevronDownIcon } from 'vue-feather-icons'
 
 import colors from '@/lib/colors'
+import Icon from '@/components/widgets/Icon'
 import ComboboxMask from '@/components/widgets/ComboboxMask'
 
 export default {
   name: 'combobox-status',
 
   components: {
-    ChevronDownIcon,
+    Icon,
     ComboboxMask
   },
 

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="timeline">
-      <check-icon class="check" size="30" v-if="isCompleted" />
+      <icon name="check" class="check" size="30" v-if="isCompleted" />
       <span
         :class="{
           step: true,
@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import { CheckIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'TimelineItem',
   components: {
-    CheckIcon
+    Icon
   },
   props: {
     title: String,

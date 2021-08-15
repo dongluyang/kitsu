@@ -1,7 +1,7 @@
 <template>
 <div class="flexrow search-field-wrapper" ref="wrapper" @click="focus">
   <div class="flexrow-item">
-    <search-icon class="search-icon" />
+    <icon name="search" class="search-icon" />
   </div>
 
   <div class="flexrow-item search-field">
@@ -32,14 +32,14 @@
 
   <div class="flexrow-item save-search" v-if="canSave">
     <button class="button save-button" @click="onSaveClicked">
-      <save-icon class="icon is-small only-icon" />
+      <icon name="save" class="icon is-small only-icon" />
     </button>
   </div>
 </div>
 </template>
 
 <script>
-import { SaveIcon, SearchIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'search-field',
@@ -65,8 +65,7 @@ export default {
   },
 
   components: {
-    SaveIcon,
-    SearchIcon
+    Icon
   },
 
   computed: {
@@ -112,11 +111,15 @@ export default {
     },
 
     setFocusedStyle () {
-      this.$refs.wrapper.className = 'flexrow search-field-wrapper focused'
+      if (this.$refs.wrapper) {
+        this.$refs.wrapper.className = 'flexrow search-field-wrapper focused'
+      }
     },
 
     unsetFocusedStyle () {
-      this.$refs.wrapper.className = 'flexrow search-field-wrapper'
+      if (this.$refs.wrapper) {
+        this.$refs.wrapper.className = 'flexrow search-field-wrapper'
+      }
     }
   }
 }

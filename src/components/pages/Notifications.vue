@@ -33,15 +33,18 @@
       <div class="flexrow notification-line">
       <div class="flexrow-item">
         <div class="flexrow">
-          <at-sign-icon
+          <icon
+            name="at-sign"
             class="icon flexrow-item"
             v-if="isMention(notification)"
           />
-          <message-square-icon
+          <icon
+            name="square"
             class="icon flexrow-item"
             v-if="isComment(notification)"
           />
-          <user-icon
+          <icon
+            name="user"
             class="icon flexrow-item"
             v-if="isAssignation(notification)"
           />
@@ -121,7 +124,7 @@
       <div class="flexrow"
           v-if="notification.preview_file_id"
       >
-          <paperclip-icon class="icon flexrow-item" />
+          <icon name="paperclip" class="icon flexrow-item" />
         <div
           class="thumbnail-picture-wrapper flexrow-item"
           v-if="notification.preview_file_id"
@@ -164,17 +167,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  AtSignIcon,
-  MessageSquareIcon,
-  PaperclipIcon,
-  UserIcon
-} from 'vue-feather-icons'
 import marked from 'marked'
 import moment from 'moment-timezone'
 import { renderComment } from '../../lib/render'
 
 import EntityThumbnail from '../widgets/EntityThumbnail'
+import Icon from '../widgets/Icon'
 import PeopleAvatar from '../widgets/PeopleAvatar'
 import Spinner from '../widgets/Spinner'
 import TaskInfo from '../sides/TaskInfo'
@@ -184,15 +182,12 @@ import ValidationTag from '../widgets/ValidationTag'
 export default {
   name: 'notification-page',
   components: {
-    AtSignIcon,
     EntityThumbnail,
-    PaperclipIcon,
+    Icon,
     PeopleAvatar,
-    MessageSquareIcon,
     Spinner,
     TaskInfo,
     TaskTypeName,
-    UserIcon,
     ValidationTag
   },
 
@@ -364,7 +359,7 @@ export default {
     }
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     this.markAllNotificationsAsRead()
   },
 

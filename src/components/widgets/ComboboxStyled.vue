@@ -1,4 +1,4 @@
-<template>
+  <template>
 <div>
   <label class="label" v-if="label.length > 0">
     {{ label }}
@@ -18,7 +18,7 @@
       >
         {{ selectedOption ? selectedOption.label : '' }}
       </div>
-      <chevron-down-icon class="down-icon flexrow-item"/>
+      <icon name="chevron-down" class="down-icon flexrow-item"/>
     </div>
     <div
       class="select-input"
@@ -49,13 +49,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ChevronDownIcon } from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'combobox-styled',
 
   components: {
-    ChevronDownIcon
+    Icon
   },
 
   data () {

@@ -13,7 +13,7 @@
       class="edit flexrow-item"
       @click.prevent="editSearch(searchQuery)"
     >
-      <edit2-icon size="0.6x" class="edit-icon"/>
+      <icon name="edit2" size="0.6x" class="edit-icon"/>
     </button>
     <button
       class="delete flexrow-item"
@@ -39,12 +39,10 @@
  * results. It allows to modify each query too.
  */
 import { mapActions } from 'vuex'
-import {
-  Edit2Icon
-} from 'vue-feather-icons'
-
 import { sortByName } from '@/lib/sorting'
+
 import EditSearchFilterModal from '@/components/modals/EditSearchFilterModal'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'search-query-list',
@@ -55,7 +53,7 @@ export default {
     }
   },
   components: {
-    Edit2Icon,
+    Icon,
     EditSearchFilterModal
   },
   data () {

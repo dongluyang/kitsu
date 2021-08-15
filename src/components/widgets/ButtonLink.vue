@@ -7,43 +7,14 @@
   <span class="icon is-small" v-if="icon.length > 0 && icon.startsWith('fa')">
     <i :class="'fa ' + icon"></i>
   </span>
-  <plus-icon
+  <icon
+    :name="name"
     :class="{
       icon: true,
       'is-small': true,
       'only-icon': !isText
-    }" v-if="icon === 'plus'" />
-  <download-icon
-    :class="{
-      icon: true,
-      'is-small': true,
-      'only-icon': !isText
-    }" v-if="icon === 'download'" />
-  <upload-icon
-    :class="{
-      icon: true,
-      'is-small': true,
-      'only-icon': !isText
-    }" v-if="icon === 'upload'" />
-  <edit-icon
-    :class="{
-      icon: true,
-      'is-small': true,
-      'only-icon': !isText
-    }" v-if="icon === 'edit'" />
-  <trash-icon
-    :class="{
-      icon: true,
-      'is-small': true,
-      'only-icon': !isText
-    }" v-if="icon === 'delete'" />
-  <rotate-ccw-icon
-    :class="{
-      icon: true,
-      'is-small': true,
-      'only-icon': !isText
-    }" v-if="icon === 'restore'" />
-
+    }"
+  />
   <span
     :class="{
       text: true,
@@ -57,24 +28,12 @@
 </template>
 
 <script>
-import {
-  DownloadIcon,
-  EditIcon,
-  PlusIcon,
-  RotateCcwIcon,
-  TrashIcon,
-  UploadIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'button-link',
   components: {
-    DownloadIcon,
-    EditIcon,
-    PlusIcon,
-    RotateCcwIcon,
-    TrashIcon,
-    UploadIcon
+    Icon
   },
   props: {
     text: {
@@ -100,6 +59,14 @@ export default {
   computed: {
     isText () {
       return this.text && this.text.length > 0
+    },
+
+    name () {
+      const names = {
+        delete: 'trash',
+        restore: 'rotate-ccw'
+      }
+      return names[this.icon] || this.icon
     }
   }
 }

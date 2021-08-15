@@ -136,7 +136,7 @@ export default {
     }, 0)
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
     this.pause()
     this.video.removeEventListener('timeupdate', this.onTimeUpdate)
     window.removeEventListener('keydown', this.onKeyDown)

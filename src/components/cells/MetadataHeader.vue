@@ -9,8 +9,9 @@
       <span class="flexrow-item descriptor-name">
         {{ descriptor.name }}
       </span>
-      <chevron-down-icon
+      <icon
         @click="$emit('show-metadata-header-menu', $event)"
+        name="chevron-down"
         class="header-icon flexrow-item"
       />
     </div>
@@ -18,9 +19,7 @@
 </template>
 
 <script>
-import {
-  ChevronDownIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'MetadataHeader',
@@ -35,7 +34,7 @@ export default {
       default: '0px'
     }
   },
-  components: { ChevronDownIcon }
+  components: { Icon }
 }
 </script>
 
