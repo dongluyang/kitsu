@@ -13,7 +13,7 @@ export const timeMixin = {
   mounted () {
   },
 
-  beforeDestroy () {
+  beforeUmount () {
   },
 
   computed: {

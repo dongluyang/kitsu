@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import productionsApi from '../api/productions'
 import { sortProductions, sortByName } from '../../lib/sorting'
 import {
@@ -481,7 +480,9 @@ const actions = {
       .then(descriptor => {
         const descriptorMap = new Map()
         state.openProductions.forEach(production => {
-          if (!production.descriptors) Vue.set(production, 'descriptors', [])
+          if (!production.descriptors) {
+            production.descriptors = []
+          }
           production.descriptors.forEach(desc => {
             descriptorMap.set(desc.id, desc)
           })
@@ -751,7 +752,7 @@ const mutations = {
       if (production.descriptors) {
         production.descriptors.push(descriptor)
       } else {
-        Vue.set(production, 'descriptors', [descriptor])
+        production.descriptors = [descriptor]
       }
     }
   },
@@ -761,7 +762,7 @@ const mutations = {
       if (production.descriptors) {
         updateModelFromList(production.descriptors, descriptor)
       } else {
-        Vue.set(production, 'descriptors', [])
+        production.descriptors = []
       }
     }
   },

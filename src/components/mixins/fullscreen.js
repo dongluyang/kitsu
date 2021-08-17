@@ -9,7 +9,7 @@ export const fullScreenMixin = {
   mounted () {
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
   },
 
   computed: {

@@ -205,7 +205,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 
 import EntityThumbnail from '@/components/widgets/EntityThumbnail'
@@ -396,7 +395,7 @@ export default {
     },
 
     addToSelection (taskId) {
-      Vue.set(this.selectionGrid, taskId, true)
+      this.selectionGrid[taskId] = true
     },
 
     selectTask (event, task, index) {

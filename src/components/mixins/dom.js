@@ -9,7 +9,7 @@ export const domMixin = {
   mounted () {
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
   },
 
   computed: {

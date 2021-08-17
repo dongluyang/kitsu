@@ -6,7 +6,7 @@
 
 export const modalMixin = {
 
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('keydown', this.onKeyDown)
   },
 

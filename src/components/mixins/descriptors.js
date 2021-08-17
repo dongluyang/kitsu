@@ -12,7 +12,7 @@ export const descriptorMixin = {
   mounted () {
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
   },
 
   computed: {

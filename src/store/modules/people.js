@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import peopleApi from '../api/people'
 import colors from '../../lib/colors'
 import { clearSelectionGrid } from '../../lib/selection'
@@ -84,11 +83,11 @@ const helpers = {
         person.initials = 'NN'
       }
 
-      Vue.set(person, 'initials', person.initials.toUpperCase())
+      person.initials = person.initials.toUpperCase()
       person.color = colors.fromString(person.name)
       if (person.has_avatar && !person.uniqueHash) {
         const randomHash = Math.random().toString(36).substring(7)
-        Vue.set(person, 'uniqueHash', randomHash)
+        person.uniqueHash = randomHash
         person.avatarPath =
           `/api/pictures/thumbnails/persons/${person.id}.png`
       }
@@ -678,7 +677,7 @@ const mutations = {
     if (person) {
       const randomHash = Math.random().toString(36).substring(7)
       person.has_avatar = true
-      Vue.set(person, 'uniqueHash', randomHash)
+      person.uniqueHash = randomHash
       person.avatarPath =
         `/api/pictures/thumbnails/persons/${person.id}.png`
     }

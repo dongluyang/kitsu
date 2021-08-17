@@ -9,7 +9,7 @@ export const entitiesMixin = {
   mounted () {
   },
 
-  beforeDestroy () {
+  beforeUnmount () {
   },
 
   computed: {

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import breakdownApi from '../api/breakdown'
 import { sortAssets } from '../../lib/sorting'
 import { groupEntitiesByParents } from '../../lib/models'
@@ -322,26 +321,18 @@ const mutations = {
     casting.forEach(a => { a.name = a.asset_name })
     const castingByType = groupEntitiesByParents(casting, 'asset_type_name')
     asset.casting = casting
-    Vue.set(state.casting, asset.id, casting)
-    Vue.set(state.castingByType, asset.id, castingByType)
-    Vue.set(
-      asset,
-      'castingAssetsByType',
-      castingByType
-    )
+    state.casting[asset.id] = casting
+    state.castingByType[asset.id] = castingByType
+    asset.castingAssetsByType = castingByType
   },
 
   [LOAD_SHOT_CASTING_END] (state, { shot, casting }) {
     casting.forEach(a => { a.name = a.asset_name || a.name })
     const castingByType = groupEntitiesByParents(casting, 'asset_type_name')
     shot.casting = casting
-    Vue.set(state.casting, shot.id, casting)
-    Vue.set(state.castingByType, shot.id, castingByType)
-    Vue.set(
-      shot,
-      'castingAssetsByType',
-      castingByType
-    )
+    state.casting[shot.id] = casting
+    state.castingByType[shot.id] = castingByType
+    shot.castingAssetsByType = castingByType
   },
 
   [LOAD_ASSET_CAST_IN_END] (state, { asset, castIn }) {
@@ -351,10 +342,8 @@ const mutations = {
       }
     })
     asset.castIn = castIn
-    Vue.set(
-      asset,
-      'castInShotsBySequence',
-      groupEntitiesByParents(castIn, 'sequence_name')
+    asset.castInShotsBySequence = groupEntitiesByParents(
+      castIn, 'sequence_name'
     )
   },
 

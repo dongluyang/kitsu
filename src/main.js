@@ -25,7 +25,9 @@ configureCompat({
   GLOBAL_MOUNT: false,
   OPTIONS_DATA_FN: false,
   OPTIONS_BEFORE_DESTROY: false,
-  COMPONENT_FUNCTIONAL: false
+  COMPONENT_FUNCTIONAL: false,
+  GLOBAL_EXTEND: false,
+  GLOBAL_PROTOTYPE: false
 })
 
 const app = createApp(App)

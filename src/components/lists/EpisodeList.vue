@@ -242,7 +242,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 
 import { entityListMixin } from '@/components/mixins/entity_list'
@@ -316,7 +315,9 @@ export default {
   },
 
   mounted () {
-    this.entries.forEach(e => { Vue.set(this.expanded, e.id, false) })
+    this.entries.forEach(e => {
+      this.expanded[e.id] = false
+    })
   },
 
   computed: {
@@ -483,13 +484,15 @@ export default {
     entries () {
       this.entries.forEach(e => {
         const value = this.expanded[e.id] || false
-        Vue.set(this.expanded, e.id, value)
+        this.expanded[e.id] = value
       })
     },
 
     isRetakes () {
       if (!this.isRetakes) {
-        this.entries.forEach(e => { Vue.set(this.expanded, e.id, false) })
+        this.entries.forEach(e => {
+          this.expanded[e.id] = false
+        })
       }
     }
   }
