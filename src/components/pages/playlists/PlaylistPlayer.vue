@@ -320,7 +320,7 @@
         :title="$t('playlists.actions.see_original_file')"
         target="blank"
       >
-        <arrow-up-right-icon class="icon is-small" />
+        <icon name="arrow-up-right" class="icon is-small" />
       </a>
     </div>
 

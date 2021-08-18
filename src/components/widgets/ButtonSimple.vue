@@ -11,7 +11,6 @@
   :title="title"
   @click="$emit('click')"
 >
-  />
   <icon
     :class="iconClass"
     :name="name"
@@ -101,7 +100,7 @@ export default {
         soundoff: 'volume-x',
         soundon: 'volume-2'
       }
-      return names[this.icon] || this.icon
+      return names[this.icon] || this.icon || 'plus'
     },
 
     iconClass () {

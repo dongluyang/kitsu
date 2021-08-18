@@ -60,7 +60,7 @@
             :to="lastSectionPath"
             class="flexrow"
           >
-            <chevron-left-icon />
+            <icon name="chevron-left" />
             {{ $t('main.go_productions') }}
           </router-link>
         </div>

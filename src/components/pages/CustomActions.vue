@@ -163,10 +163,6 @@ export default {
     }
   },
 
-  watch: {
-    $route () { this.handleModalsDisplay() }
-  },
-
   metaInfo () {
     return {
       title: `${this.$t('custom_actions.title')} - Kitsu`
