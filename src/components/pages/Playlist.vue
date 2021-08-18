@@ -734,11 +734,11 @@ export default {
     },
 
     onPlaylistListScroll (event, position) {
-      if (this.$options.silentMore) return
+      if (this.silentMore) return
       const listEl = this.$refs.playlistList
       const maxHeight = listEl.scrollHeight - listEl.offsetHeight
       if (maxHeight < (position.scrollTop + 20)) {
-        this.$options.silentMore = true
+        this.silentMore = true
         this.page++
         this.loadMorePlaylists({
           sortBy: this.currentSort,
@@ -747,12 +747,12 @@ export default {
         })
           .then(playlists => {
             setTimeout(() => {
-              this.$options.silentMore = false
+              this.silentMore = false
             }, 1000)
           })
           .catch(err => {
             console.error(err)
-            this.$options.silentMore = false
+            this.silentMore = false
             this.errors.loadPlaylists = true
             return Promise.reject(err)
           })
@@ -926,11 +926,11 @@ export default {
     // Addition Helpers
 
     addCurrentSelection () {
-      this.$options.silent = true
+      this.silent = true
       const entities =
         this.isAssetPlaylist ? this.displayedAssets : this.displayedShots
       this.addEntities([...entities].reverse(), () => {
-        this.$options.silent = false
+        this.silent = false
       })
     },
 
@@ -941,55 +941,55 @@ export default {
           .filter(s => s.sequence_id === sequenceId)
           .sort(firstBy('name'))
           .reverse()
-        this.$options.silent = true
+        this.silent = true
         this.addEntities(shots, () => {
-          this.$options.silent = false
+          this.silent = false
         })
       }
     },
 
     addAllPending () {
-      this.$options.silent = true
+      this.silent = true
       this.loading.addWeekly = true
       this.getPending(false)
         .then((shots) => {
           this.addEntities(shots.reverse(), () => {
             this.loading.addWeekly = false
-            this.$options.silent = false
+            this.silent = false
           })
         })
     },
 
     addDailyPending () {
       this.loading.addDaily = true
-      this.$options.silent = true
+      this.silent = true
       this.getPending(true)
         .then((shots) => {
           this.addEntities(sortShots(shots).reverse(), () => {
             this.loading.addDaily = false
-            this.$options.silent = false
+            this.silent = false
           })
         })
     },
 
     addEpisodePending () {
       this.loading.addEpisode = true
-      this.$options.silent = true
+      this.silent = true
       let shots = [].concat(...this.shotsByEpisode)
       shots = sortShots(shots).reverse()
       this.addEntities(shots, () => {
         this.loading.addEpisode = false
-        this.$options.silent = false
+        this.silent = false
       })
     },
 
     addMovie () {
       this.loading.addMovie = true
-      this.$options.silent = true
+      this.silent = true
       const shots = sortShots(Array.from(this.shotMap.values()))
       this.addEntities(shots.reverse(), () => {
         this.loading.addMovie = false
-        this.$options.silent = false
+        this.silent = false
       })
     },
 
@@ -1227,6 +1227,11 @@ export default {
     }
   },
 
+  created () {
+    this.silentMore = false
+    this.silent = false
+  },
+
   mounted () {
     // Next tick needed to ensure that current production is properly set.
     this.$nextTick(() => {
@@ -1245,7 +1250,7 @@ export default {
 
     currentPlaylist () {
       if (this.currentPlaylist.shots) {
-        this.$options.silentMore = false
+        this.silentMore = false
         this.isAddingEntity =
           Object.keys(this.currentPlaylist.shots).length === 0
       } else {

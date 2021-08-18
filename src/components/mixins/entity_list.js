@@ -7,6 +7,7 @@ export const entityListMixin = {
 
   created () {
     this.initHiddenColumns(this.validationColumns, this.hiddenColumns)
+    this.lineIndex = {}
   },
 
   mounted () {
@@ -262,9 +263,8 @@ export const entityListMixin = {
 
     // i = line number in entity group and k is the index of the entity group
     getEntityLineNumber (entities, i, k) {
-      this.$options.lineIndex = {}
       const key = `${i}-${k}`
-      const cached = this.$options.lineIndex[key]
+      const cached = this.lineIndex[key]
       if (!cached) {
         let j = 0
         let index = 0
@@ -273,7 +273,7 @@ export const entityListMixin = {
           j++
         }
         const val = i + index
-        this.$options.lineIndex[key] = val
+        this.lineIndex[key] = val
         return val
       } else {
         return cached

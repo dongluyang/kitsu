@@ -73,13 +73,18 @@ export default {
     }
   },
 
+  created () {
+    this.currentTimeCalls = []
+    this.rate = 1
+    this.running = false
+  },
+
   // Video need to be resized after each window size change. It's due
   // to a HTML5 limitation related to video height.
   mounted () {
     this.resetHeight()
     this.player1.addEventListener('loadedmetadata', this.emitLoadedEvent)
     window.addEventListener('resize', this.resetHeight)
-    this.$options.currentTimeCalls = []
   },
 
   beforeUnmount () {
@@ -259,7 +264,7 @@ export default {
           'loadedmetadata',
           this.updateMaxDuration
         )
-        const rate = this.$options.rate || 1
+        const rate = this.rate || 1
 
         this.currentPlayer.src = this.getMoviePath(entity)
         this.nextPlayer.src = this.getMoviePath(nextEntity)
@@ -326,9 +331,9 @@ export default {
     },
 
     getLastPushedCurrentTime () {
-      const length = this.$options.currentTimeCalls.length
+      const length = this.currentTimeCalls.length
       if (length > 0) {
-        return this.$options.currentTimeCalls[length - 1]
+        return this.currentTimeCalls[length - 1]
       } else {
         return this.getCurrentTime()
       }
@@ -343,19 +348,19 @@ export default {
     },
 
     setCurrentTime (currentTime) {
-      if (!this.$options.currentTimeCalls) {
-        this.$options.currentTimeCalls = []
+      if (!this.currentTimeCalls) {
+        this.currentTimeCalls = []
       }
-      this.$options.currentTimeCalls.push(currentTime)
-      if (!this.$options.running) this.runSetCurrentTime()
+      this.currentTimeCalls.push(currentTime)
+      if (!this.running) this.runSetCurrentTime()
     },
 
     runSetCurrentTime () {
-      if (this.$options.currentTimeCalls.length === 0) {
-        this.$options.running = false
+      if (this.currentTimeCalls.length === 0) {
+        this.running = false
       } else {
-        this.$options.running = true
-        const currentTime = this.$options.currentTimeCalls.shift()
+        this.running = true
+        const currentTime = this.currentTimeCalls.shift()
         if (this.currentPlayer &&
             this.currentPlayer.currentTime !== currentTime + this.frameFactor) {
           if (this.currentPlayer) {
@@ -386,7 +391,7 @@ export default {
       if (this.nextPlayer) {
         this.nextPlayer.removeEventListener('timeupdate', this.updateTime)
       }
-      const rate = this.$options.rate || 1
+      const rate = this.rate || 1
       this.setSpeed(rate)
     },
 
@@ -401,7 +406,7 @@ export default {
     },
 
     setSpeed (rate) {
-      this.$options.rate = rate
+      this.rate = rate
       if (this.currentPlayer) this.currentPlayer.playbackRate = rate
       if (this.nextPlayer) this.nextPlayer.playbackRate = rate
     }

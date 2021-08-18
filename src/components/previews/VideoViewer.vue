@@ -98,10 +98,13 @@ export default {
     }
   },
 
+  created () {
+    this.running = false
+    this.currentTimeCalls = []
+  },
+
   mounted () {
     if (!this.container) return
-    this.$options.currentTimeCalls = []
-
     this.container.style.height = this.defaultHeight + 'px'
     this.isLoading = true
     if (this.isMuted) {
@@ -259,9 +262,9 @@ export default {
     },
 
     getLastPushedCurrentTime () {
-      const length = this.$options.currentTimeCalls.length
+      const length = this.currentTimeCalls.length
       if (length > 0) {
-        return this.$options.currentTimeCalls[length - 1]
+        return this.currentTimeCalls[length - 1]
       } else {
         return this.currentTimeRaw
       }
@@ -272,19 +275,19 @@ export default {
     },
 
     setCurrentTime (currentTime) {
-      if (!this.$options.currentTimeCalls) {
-        this.$options.currentTimeCalls = []
+      if (!this.currentTimeCalls) {
+        this.currentTimeCalls = []
       }
-      this.$options.currentTimeCalls.push(currentTime)
-      if (!this.$options.running) this.runSetCurrentTime()
+      this.currentTimeCalls.push(currentTime)
+      if (!this.running) this.runSetCurrentTime()
     },
 
     runSetCurrentTime () {
-      if (this.$options.currentTimeCalls.length === 0) {
-        this.$options.running = false
+      if (this.currentTimeCalls.length === 0) {
+        this.running = false
       } else {
-        this.$options.running = true
-        const currentTime = this.$options.currentTimeCalls.shift()
+        this.running = true
+        const currentTime = this.currentTimeCalls.shift()
         // currentTime = roundToFrame(currentTime, this.fps)
         if (this.video.currentTime !== currentTime + this.frameFactor) {
           this.video.currentTime = currentTime + this.frameFactor

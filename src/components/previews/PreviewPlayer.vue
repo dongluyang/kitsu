@@ -519,6 +519,13 @@ export default {
     }
   },
 
+  created () {
+    this.loupe = false
+    this.scrubbing = false
+    this.scrubStartX = 0
+    this.scrubStartTime = 0
+  },
+
   mounted () {
     if (!this.container) return
     this.configureEvents()
@@ -1298,42 +1305,42 @@ export default {
     // Loupe
 
     onCanvasMouseMoved (event) {
-      if (this.isPicture && this.$options.loupe) {
+      if (this.isPicture && this.loupe) {
         const width = this.canvasWrapper.style.width
         const height = this.canvasWrapper.style.height
         this.previewViewer.updateLoupePosition(event, { width, height })
-      } else if (this.isMovie && this.$options.scrubbing) {
+      } else if (this.isMovie && this.scrubbing) {
         const x = event.e.clientX
-        if (x - this.$options.scrubStartX < 0) {
+        if (x - this.scrubStartX < 0) {
           this.goPreviousFrame()
         } else {
           this.goNextFrame()
         }
-        this.$options.scrubStartX = x
+        this.scrubStartX = x
       }
     },
 
     onCanvasClicked (event) {
       if (event.button > 1 && this.isPicture && this.fullScreen) {
-        this.$options.loupe = true
+        this.loupe = true
         this.previewViewer.showLoupe()
         const width = this.canvasWrapper.style.width
         const height = this.canvasWrapper.style.height
         this.previewViewer.updateLoupePosition(event, { width, height })
       } else if (event.button > 1 && this.isMovie) {
-        this.$options.scrubbing = true
-        this.$options.scrubStartX = event.e.clientX
-        this.$options.scrubStartTime = Number(this.currentTimeRaw)
+        this.scrubbing = true
+        this.scrubStartX = event.e.clientX
+        this.scrubStartTime = Number(this.currentTimeRaw)
       }
       return false
     },
 
     onCanvasReleased (event) {
-      if (this.isPicture && this.$options.loupe) {
+      if (this.isPicture && this.loupe) {
         this.previewViewer.hideLoupe()
-        this.$options.loupe = false
-      } else if (this.isMovie && this.$options.scrubbing) {
-        this.$options.scrubbing = false
+        this.options.loupe = false
+      } else if (this.isMovie && this.scrubbing) {
+        this.scrubbing = false
       }
       return false
     },

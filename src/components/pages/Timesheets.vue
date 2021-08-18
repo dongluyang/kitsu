@@ -159,6 +159,7 @@ export default {
   },
 
   created () {
+    this.silent = false
     this.isLoading = true
     if (this.people.length === 0) {
       this.loadPeople(() => {
@@ -282,7 +283,7 @@ export default {
       // The main idea is to build the context from the route and compare it
       // to the current context. If there are changes, it applies it.
       // It handles too the display or not of the side column.
-      this.$options.silent = true
+      this.silent = true
       const { month, year, week, day } = this.$route.params
       const previousProduction = `${this.productionId}`
       const previousDetailLevel = `${this.detailLevel}`
@@ -321,7 +322,7 @@ export default {
       const productionHasChanged =
         previousProduction.localeCompare(`${this.productionId}`) !== 0
       this.$nextTick(() => {
-        this.$options.silent = false
+        this.silent = false
       })
 
       if (this.$route.path.indexOf('person') > 0) {
