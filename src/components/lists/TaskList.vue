@@ -145,8 +145,8 @@
             <date-field
               class="flexrow-item"
               :with-margin="false"
-              :value="getDate(task.start_date)"
-              @input="updateStartDate"
+              :modelValue="getDate(task.start_date)"
+              @update:modelValue="updateStartDate"
               v-if="selectionGrid[task.id]"
             />
             <span v-else>
@@ -157,8 +157,8 @@
             <date-field
               class="flexrow-item"
               :with-margin="false"
-              :value="getDate(task.due_date)"
-              @input="updateDueDate"
+              :modelValue="getDate(task.due_date)"
+              @update:modelValue="updateDueDate"
               v-if="selectionGrid[task.id]"
             />
             <span v-else>

@@ -87,7 +87,7 @@ export default {
 
   methods: {
     updateValue () {
-      this.$emit('input', parseInt(this.$refs.select.value))
+      this.$emit('update:modelValue', parseInt(this.$refs.select.value))
     },
     emitEnter () {
       this.$emit('enter', parseInt(this.$refs.select.value))

@@ -13,7 +13,7 @@
       :disabled-dates="disabledDates"
       :monday-first="true"
       format="yyyy-MM-dd"
-      @input="$emit('input', localValue)"
+      @input="$emit('update:modelValue', localValue)"
       v-model="localValue"
     />
     <span
@@ -35,7 +35,7 @@ import Datepicker from 'vuejs-datepicker'
 import { domMixin } from '@/components/mixins/dom'
 
 export default {
-  name: 'text-field',
+  name: 'date-field',
 
   components: {
     Datepicker
@@ -56,7 +56,7 @@ export default {
       default: true,
       type: Boolean
     },
-    value: {
+    modelValue: {
       default: new Date(),
       type: Date
     },
@@ -77,7 +77,7 @@ export default {
   },
 
   mounted () {
-    this.localValue = this.value
+    this.localValue = this.modelValue
   },
 
   computed: {
@@ -101,13 +101,13 @@ export default {
     clearValue (event) {
       this.pauseEvent(event)
       this.localValue = null
-      this.$emit('input', null)
+      this.$emit('update:modelValue', null)
     }
   },
 
   watch: {
-    value () {
-      this.localValue = this.value
+    modelValue () {
+      this.localValue = this.modelValue
     },
     localValue () {
     }

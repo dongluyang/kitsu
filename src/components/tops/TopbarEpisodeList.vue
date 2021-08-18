@@ -109,7 +109,6 @@ export default {
 
   methods: {
     selectEpisode (episode) {
-      this.$emit('input', episode.id)
       this.showEpisodeList = false
     },
 

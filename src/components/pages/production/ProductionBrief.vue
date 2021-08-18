@@ -1,38 +1,38 @@
 <template>
-    <div class="brief">
-      <div v-if="!isEditing" class="box" @dblclick="openEditing">
-        <div v-if="isEmpty(currentProduction.description)">
-          <p>{{$t('productions.brief.empty')}}</p>
-        </div>
-        <div
-          class="content"
-          v-html="compileMarkdown(currentProduction.description)"
-          v-else
-        >
-        </div>
+  <div class="brief">
+    <div v-if="!isEditing" class="box" @dblclick="openEditing">
+      <div v-if="isEmpty(currentProduction.description)">
+        <p>{{$t('productions.brief.empty')}}</p>
       </div>
-      <div v-else class="box has-text-right">
-        <textarea-field
-          class="editor"
-          ref="textarea"
-          input-class="textarea"
-          @keyup.ctrl.enter="editBrief"
-          v-model="brief"
-        />
-        <p v-if="errors.editBrief" class="error mt1 has-text-right">
-          {{ $t('productions.brief.edit.errorText') }}
-        </p>
-        <p>
-          <button-simple
-            :is-primary="true"
-            :is-loading="isLoading"
-            :disabled="isLoading"
-            :text="$t('main.save')"
-            @click="editBrief"
-          />
-        </p>
+      <div
+        class="content"
+        v-html="compileMarkdown(currentProduction.description)"
+        v-else
+      >
       </div>
     </div>
+    <div v-else class="box has-text-right">
+      <textarea-field
+        class="editor"
+        ref="textarea"
+        input-class="textarea"
+        @keyup.ctrl.enter="editBrief"
+        v-model="brief"
+      />
+      <p v-if="errors.editBrief" class="error mt1 has-text-right">
+        {{ $t('productions.brief.edit.errorText') }}
+      </p>
+      <p>
+        <button-simple
+          :is-primary="true"
+          :is-loading="isLoading"
+          :disabled="isLoading"
+          :text="$t('main.save')"
+          @click="editBrief"
+        />
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -3,8 +3,8 @@
   :label="label"
   :disabled="disabled"
   :options="booleanOptions"
-  :value="value"
-  @input="emitValue"
+  :modelValue="modelValue"
+  @update:modelValue="emitValue"
   @enter="emitEnter"
 />
 </template>
@@ -25,7 +25,7 @@ export default {
       type: String
     },
 
-    value: {
+    modelValue: {
       default: 'false',
       type: String
     },
@@ -55,7 +55,7 @@ export default {
 
   methods: {
     emitValue (value) {
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
     },
     emitEnter (value) {
       this.$emit('enter', value)

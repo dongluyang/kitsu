@@ -30,7 +30,7 @@
         <combobox
           class="flexrow-item"
           :options="general.operatorOptions"
-          @input="onDepartmentOperatorChanged(departmentFilter)"
+          @update:modelValue="onDepartmentOperatorChanged(departmentFilter)"
           locale-key-prefix="entities.build_filter."
           v-model="departmentFilter.operator"
         />

@@ -5,7 +5,7 @@
     <div
       :class="{
         color: true,
-        selected: value === color
+        selected: modelValue === color
       }"
       :ref="'color-' + index"
       :key="'color-' + index"
@@ -25,13 +25,13 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'text-field',
+  name: 'color-field',
   props: {
     label: {
       default: '',
       type: String
     },
-    value: {
+    modelValue: {
       default: '$grey999',
       type: String
     },
@@ -83,7 +83,7 @@ export default {
     ...mapActions([
     ]),
     colorChanged (color, index) {
-      this.$emit('input', color)
+      this.$emit('update:modelValue', color)
     }
   }
 }

@@ -28,7 +28,7 @@
           v-for="(option, i) in options"
           :key="`${i}-${option.label}-${option.value}`"
           :value="option.value || option.label"
-          :selected="value === option.value"
+          :selected="modelValue === option.value"
         >
           {{ getOptionLabel(option) }}
         </option>
@@ -47,7 +47,7 @@ export default {
       default: '',
       type: String
     },
-    value: {
+    modelValue: {
       default: '',
       type: [Object, String]
     },
@@ -93,7 +93,7 @@ export default {
 
   methods: {
     updateValue () {
-      this.$emit('input', this.$refs.select.value)
+      this.$emit('update:modelValue', this.$refs.select.value)
     },
 
     emitEnter () {

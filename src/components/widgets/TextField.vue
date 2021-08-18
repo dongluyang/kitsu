@@ -11,7 +11,7 @@
       ref="input"
       :placeholder="placeholder"
       :type="type"
-      :value="value"
+      :value="modelValue"
       :disabled="disabled"
       :maxlength="maxlength"
       min="0"
@@ -43,7 +43,7 @@ export default {
       default: '',
       type: String
     },
-    value: {
+    modelValue: {
       default: '',
       type: [String, Number]
     },
@@ -91,7 +91,7 @@ export default {
     },
 
     updateValue () {
-      this.$emit('input', this.$refs.input.value)
+      this.$emit('update:modelValue', this.$refs.input.value)
     },
 
     focus () {

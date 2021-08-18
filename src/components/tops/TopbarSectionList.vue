@@ -101,7 +101,6 @@ export default {
 
   methods: {
     selectSection (section) {
-      this.$emit('input', section.value)
       this.localSection = section.value
       this.showSectionList = false
     },

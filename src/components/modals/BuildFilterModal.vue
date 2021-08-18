@@ -59,7 +59,7 @@
         <combobox
           class="flexrow-item"
           :options="general.taskTypeOperatorOptions"
-          @input="onTaskTypeOperatorChanged(taskTypeFilter)"
+          @update:modelValue="onTaskTypeOperatorChanged(taskTypeFilter)"
           locale-key-prefix="entities.build_filter."
           v-model="taskTypeFilter.operator"
         />
@@ -104,7 +104,7 @@
           <combobox
             class="flexrow-item"
             :options="descriptorOptions"
-            @input="onDescriptorChanged(descriptorFilter)"
+            @update:modelValue="onDescriptorChanged(descriptorFilter)"
             v-model="descriptorFilter.id"
           />
           <combobox

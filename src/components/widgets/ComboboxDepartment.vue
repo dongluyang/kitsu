@@ -70,7 +70,7 @@ export default {
       default: '',
       type: String
     },
-    value: {
+    modelValue: {
       default: '',
       type: String
     },
@@ -99,8 +99,8 @@ export default {
     },
 
     currentDepartment () {
-      if (this.value) {
-        return this.departmentMap.get(this.value)
+      if (this.modelValue) {
+        return this.departmentMap.get(this.modelValue)
       } else {
         return this.departmentList[0]
       }
@@ -109,7 +109,7 @@ export default {
 
   methods: {
     selectDepartment (department) {
-      this.$emit('input', department.id)
+      this.$emit('update:modelValue', department.id)
       this.showDepartmentList = false
     },
 

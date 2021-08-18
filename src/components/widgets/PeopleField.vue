@@ -35,7 +35,7 @@ export default {
 
   created () {
     this.items = this.people
-    this.item = this.value
+    this.item = this.modelValue
     this.index = buildNameIndex(this.people)
   },
 
@@ -56,7 +56,7 @@ export default {
   },
 
   props: {
-    value: {
+    modelValue: {
       type: Object,
       default: () => {}
     },
@@ -95,7 +95,7 @@ export default {
     },
 
     onChange () {
-      this.$emit('input', this.item)
+      this.$emit('update:modelValue', this.item)
     },
 
     clear () {

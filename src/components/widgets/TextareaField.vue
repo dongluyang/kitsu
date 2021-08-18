@@ -8,7 +8,7 @@
       :class="'input ' + inputClass"
       :placeholder="placeholder"
       :type="type"
-      :value="value"
+      :value="modelValue"
       @input="updateValue"
       @keyup.enter="emitEnter"
       @keyup="emitKeyup"
@@ -27,7 +27,7 @@ export default {
       default: '',
       type: String
     },
-    value: {
+    modelValue: {
       default: '',
       type: String
     },
@@ -55,7 +55,7 @@ export default {
       this.$emit('enter', this.$refs.input.value)
     },
     updateValue () {
-      this.$emit('input', this.$refs.input.value)
+      this.$emit('update:modelValue', this.$refs.input.value)
     },
     emitKeyup (event) {
       this.$emit('keyup', event)

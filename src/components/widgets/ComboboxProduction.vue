@@ -80,7 +80,7 @@ export default {
       required: true,
       type: Array
     },
-    value: {
+    modelValue: {
       default: '',
       type: String
     }
@@ -96,8 +96,8 @@ export default {
     ]),
 
     currentProduction () {
-      if (this.value) {
-        return this.productionMap.get(this.value)
+      if (this.modelValue) {
+        return this.productionMap.get(this.modelValue)
       } else {
         return this.productionList[0]
       }
@@ -106,7 +106,7 @@ export default {
 
   methods: {
     selectProduction (production) {
-      this.$emit('input', production.id)
+      this.$emit('update:modelValue', production.id)
       this.showProductionList = false
     },
 

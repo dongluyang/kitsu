@@ -77,7 +77,7 @@ export default {
       default: () => [],
       type: Array
     },
-    value: {
+    modelValue: {
       default: '',
       type: String
     }
@@ -97,7 +97,7 @@ export default {
 
   methods: {
     selectOption (option) {
-      this.$emit('input', option.value)
+      this.$emit('update:modelValue', option.value)
       this.selectedOption = option
       this.showList = false
     },
@@ -117,7 +117,7 @@ export default {
   watch: {
     options () {
       if (this.options.length > 0) {
-        const option = this.options.find(o => o.value === this.value)
+        const option = this.options.find(o => o.value === this.modelValue)
         if (option) {
           this.selectedOption = option
         } else {
@@ -126,8 +126,8 @@ export default {
       }
     },
 
-    value () {
-      this.selectedOption = this.options.find(o => o.value === this.value)
+    modelValue () {
+      this.selectedOption = this.options.find(o => o.value === this.modelValue)
     }
   }
 }

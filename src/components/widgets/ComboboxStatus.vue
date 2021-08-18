@@ -91,7 +91,7 @@ export default {
       default: () => [],
       type: Array
     },
-    value: {
+    modelValue: {
       default: '',
       type: String
     },
@@ -120,8 +120,8 @@ export default {
     ]),
 
     currentStatus () {
-      if (this.value) {
-        return this.taskStatusMap.get(this.value)
+      if (this.modelValue) {
+        return this.taskStatusMap.get(this.modelValue)
       } else if (this.addPlaceholder) {
         return {
           short_name: '+ status',
@@ -135,7 +135,7 @@ export default {
 
   methods: {
     selectStatus (status) {
-      this.$emit('input', status.id)
+      this.$emit('update:modelValue', status.id)
       this.showStatusList = false
     },
 

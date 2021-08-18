@@ -3,8 +3,8 @@
   :label="label"
   :disabled="disabled"
   :options="modelOptions"
-  :value="currentModelId"
-  @input="emitValue"
+  :modelValue="currentModelId"
+  @update:modelValue="emitValue"
   @enter="emitEnter"
 />
 </template>
@@ -25,7 +25,7 @@ export default {
       type: String
     },
 
-    value: {
+    modelValue: {
       default: () => {},
       type: Object
     },
@@ -60,7 +60,7 @@ export default {
     emitValue (value) {
       this.currentModelId = value
       const model = this.modelMap[this.currentModelId]
-      this.$emit('input', model)
+      this.$emit('update:modelValue', model)
     },
 
     emitEnter (value) {
