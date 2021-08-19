@@ -14,6 +14,7 @@
       'is-small': true,
       'only-icon': !isText
     }"
+    v-if="name"
   />
   <span
     :class="{

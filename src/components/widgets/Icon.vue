@@ -1,6 +1,9 @@
 <template>
 <span>
-  <vue-feather :type="name" />
+  <vue-feather
+    :size="width"
+    :type="type"
+  />
 </span>
 </template>
 
@@ -14,10 +17,17 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    width: {
+      type: Number,
+      default: 16
     }
   },
 
   computed: {
+    type () {
+      return this.name.length > 0 ? this.name : 'plus'
+    }
   },
 
   methods: {

@@ -30,8 +30,8 @@
               :section="currentSectionOption"
             />
           </div>
-          <div class="flexrow-item">
-            <icon name="chevron-right" class="mt05" size="1.4x" />
+          <div class="flexrow-item section-path">
+            <icon name="chevron-right" />
           </div>
           <div class="flexrow-item subitem">
             <topbar-section-list
@@ -40,8 +40,8 @@
               :section="currentSectionOption"
             />
           </div>
-          <div class="flexrow-item" v-if="isEpisodeContext">
-            <icon name="chevron-right" class="mt05" size="1.4x" />
+          <div class="flexrow-item section-path" v-if="isEpisodeContext">
+            <icon class="section-path" name="chevron-right" />
           </div>
           <div class="flexrow-item subitem">
             <topbar-episode-list
@@ -60,7 +60,7 @@
             :to="lastSectionPath"
             class="flexrow"
           >
-            <icon name="chevron-left" />
+            <icon class="back" name="chevron-left" :width="24" />
             {{ $t('main.go_productions') }}
           </router-link>
         </div>
@@ -90,7 +90,7 @@
         </router-link>
         <div class="nav-item">
           <button  data-canny-changelog class="changelog-button" >
-            <icon name="zap" />
+            <icon name="zap" :width="22" />
           </button>
         </div>
         <notification-bell />
@@ -178,7 +178,7 @@
         </li>
         <hr />
         <li class="flexrow" @click="onLogoutClicked">
-          <icon name="log-out" class="flexrow-item" size="1x" />
+          <icon name="log-out" class="flexrow-item" />
           <span class="flexrow-item">{{ $t("main.logout") }}</span>
         </li>
       </ul>
@@ -819,6 +819,16 @@ strong {
 
 .topbar-menu {
   padding: 10px;
+}
+
+.back {
+  padding-top: 6px;
+  margin-right: 2px;
+  color: $grey;
+}
+
+.section-path {
+  padding-top: 5px;
 }
 
 @media screen and (max-width: 768px) {

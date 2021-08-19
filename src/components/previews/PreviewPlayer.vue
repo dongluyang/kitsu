@@ -375,7 +375,7 @@
         <button-simple
           class="flexrow-item"
           :title="$t('playlists.actions.fullscreen')"
-          icon="maximize"
+          icon="fullscreen"
           v-if="isFullScreenEnabled"
           @click="onFullscreenClicked"
         />

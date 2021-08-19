@@ -25,7 +25,12 @@
         :limit="2"
         @input="onTextChanged"
       >
-        <template slot="item" slot-scope="team">
+        <template
+          slot="item"
+          slot-scope="team"
+          v-if="team && team.item"
+        >
+
           <template v-if="team.item.isTime">
             ⏱️  frame
           </template>

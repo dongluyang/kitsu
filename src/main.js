@@ -23,12 +23,11 @@ import router from './router'
 import store from './store'
 
 configureCompat({
-  GLOBAL_MOUNT: false,
-  OPTIONS_DATA_FN: false,
-  OPTIONS_BEFORE_DESTROY: false,
-  COMPONENT_FUNCTIONAL: false,
-  GLOBAL_EXTEND: false,
-  GLOBAL_PROTOTYPE: false
+  MODE: 3,
+  INSTANCE_EVENT_HOOKS: true,
+  INSTANCE_EVENT_EMITTER: true,
+  INSTANCE_CHILDREN: true,
+  INSTANCE_SCOPED_SLOTS: true
 })
 
 const app = createApp(App)

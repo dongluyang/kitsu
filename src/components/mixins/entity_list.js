@@ -105,9 +105,16 @@ export const entityListMixin = {
 
     getValidationStyle (columnId) {
       const taskType = this.taskTypeMap.get(columnId)
-      return {
-        'border-left': `1px solid ${taskType.color}`,
-        background: this.getBackground(taskType.color)
+      if (taskType) {
+        return {
+          'border-left': `1px solid ${taskType.color}`,
+          background: this.getBackground(taskType.color)
+        }
+      } else {
+        return {
+          'border-left': '1px solid #FFFFFF',
+          background: '#FFFFFF'
+        }
       }
     },
 

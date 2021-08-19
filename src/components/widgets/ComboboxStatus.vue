@@ -135,6 +135,7 @@ export default {
 
   methods: {
     selectStatus (status) {
+      console.log(status)
       this.$emit('update:modelValue', status.id)
       this.showStatusList = false
     },
@@ -228,6 +229,7 @@ export default {
   width: 15px;
   min-width: 15px;
   margin-right: 0.4em;
+  margin-top: 5px;
   color: $green;
   cursor: pointer;
 }

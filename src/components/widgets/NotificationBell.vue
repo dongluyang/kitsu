@@ -6,6 +6,7 @@
     <icon
       name="bell"
       :class="notificationBellClass"
+      :width="22"
     />
     <span
       class="number"

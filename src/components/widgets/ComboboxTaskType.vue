@@ -179,6 +179,7 @@ export default {
 .down-icon {
   width: 15px;
   min-width: 15px;
+  margin-top: 5px;
   margin-right: 0.4em;
   color: $green;
   cursor: pointer;

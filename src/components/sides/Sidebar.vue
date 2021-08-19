@@ -27,13 +27,13 @@
 
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'todos'}">
-               <icon name="check" size="0.9x" />
+               <icon class="icon" name="check" />
                {{ $t("tasks.my_tasks") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'open-productions'}">
-               <icon name="film" size="0.9x" />
+               <icon class="icon" name="film" />
                {{ $t("productions.open_productions") }}
              </router-link>
            </p>
@@ -44,28 +44,28 @@
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'productions'}">
-               <icon name="film" size="0.9x" />
+               <icon class="icon" name="film" size="0.9x" />
                {{ $t("productions.title") }}
              </router-link>
            </p>
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'people'}">
-               <icon name="users" size="0.9x" />
+               <icon class="icon" name="users" size="0.9x" />
                {{ $t("people.title") }}
              </router-link>
            </p>
 
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'timesheets'}">
-               <icon name="clock" size="0.9x" />
+               <icon class="icon" name="clock" size="0.9x" />
                {{ $t("timesheets.title") }}
              </router-link>
          </p>
 
            <p @click="toggleSidebar()" v-if="isCurrentUserAdmin">
              <router-link :to="{name: 'main-schedule'}">
-               <icon name="calendar" size="0.9x" />
+               <icon class="icon" name="calendar" size="0.9x" />
                {{ $t("schedule.title_main") }}
              </router-link>
            </p>
@@ -75,43 +75,43 @@
            <h2>{{ $t('main.admin')}}</h2>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'departments'}">
-               <icon name="hexagon" size="0.9x" />
+               <icon class="icon" name="hexagon" size="0.9x" />
                {{ $t("departments.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/task-types">
-               <icon name="copy" size="0.9x" />
+               <icon class="icon" name="copy" size="0.9x" />
                {{ $t("task_types.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/task-status" class="task-status-link">
-               <icon name="award" size="0.9x" />
+               <icon class="icon" name="award" size="0.9x" />
                {{ $t("task_status.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link to="/asset-types">
-               <icon name="box" size="0.9x" />
+               <icon class="icon" name="box" size="0.9x" />
                {{ $t("asset_types.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'custom-actions'}">
-               <icon name="git-pull-request" size="0.9x" />
+               <icon class="icon" name="git-pull-request" size="0.9x" />
                {{ $t("custom_actions.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'settings'}">
-               <icon name="settings" size="0.9x" />
+               <icon class="icon" name="settings" size="0.9x" />
                {{ $t("settings.title") }}
              </router-link>
            </p>
            <p @click="toggleSidebar()">
              <router-link :to="{name: 'logs'}">
-               <icon name="list" size="0.9x" />
+               <icon class="icon" name="list" size="0.9x" />
                {{ $t("logs.title") }}
              </router-link>
            </p>
@@ -267,6 +267,10 @@ aside section {
 h2 {
   margin-top: 2em;
   margin-bottom: 0.3em;
+}
+
+.icon {
+  margin-right: 8px;
 }
 
 p {
