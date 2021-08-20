@@ -16,12 +16,12 @@
       </thead>
       <draggable
         class="datatable-body"
-        v-model="assetsItems"
-        draggable=".tasktype-item"
         tag="tbody"
         :sort="true"
         @end="updatePriorityAssets"
+        v-model="assetsItems"
       >
+        <template>
         <tr class="datatable-type-header" slot="header">
           <th scope="rowgroup" colspan="4">
             <span class="datatable-row-header">
@@ -50,6 +50,7 @@
             @edit-clicked="$emit('edit-clicked', taskType)"
           />
         </tr>
+        </template>
       </draggable>
       <draggable
         class="datatable-body"

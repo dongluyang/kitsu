@@ -8,15 +8,10 @@
     <div class="flexrow project-dates">
       <div class="flexrow-item">
         <label class="label">
-          {{ $t('main.start_date') }}
         </label>
-        <datepicker
-          wrapper-class="datepicker"
-          input-class="date-input input"
-          :language="locale"
+        <date-field
+          :label="$t('main.start_date')"
           :disabled-dates="{ days: [6, 0] }"
-          :monday-first="true"
-          format="yyyy-MM-dd"
           v-model="selectedStartDate"
         />
       </div>
@@ -24,13 +19,9 @@
         <label class="label">
           {{ $t('main.end_date') }}
         </label>
-        <datepicker
-          wrapper-class="datepicker"
-          input-class="date-input input"
-          :language="locale"
+        <date-field
+          :label="$t('main.end_date')"
           :disabled-dates="{ days: [6, 0] }"
-          :monday-first="true"
-          format="yyyy-MM-dd"
           v-model="selectedEndDate"
         />
       </div>
@@ -65,26 +56,25 @@
  */
 import { mapGetters, mapActions } from 'vuex'
 import moment from 'moment-timezone'
-import { en, fr } from 'vuejs-datepicker/dist/locale'
-import Datepicker from 'vuejs-datepicker'
-import { getProductionSchedulePath } from '../../lib/path'
+import { getProductionSchedulePath } from '@/lib/path'
 
 import {
   getFirstStartDate,
   getLastEndDate,
   getStartDateFromString,
   getEndDateFromString
-} from '../../lib/time'
-import colors from '../../lib/colors'
+} from '@/lib/time'
+import colors from '@/lib/colors'
 
-import ComboboxNumber from '../widgets/ComboboxNumber'
-import Schedule from './schedule/Schedule'
+import ComboboxNumber from '@/components/widgets/ComboboxNumber'
+import DateField from '@/components/widgets/DateField.vue'
+import Schedule from '@/components/pages/schedule/Schedule'
 
 export default {
   name: 'production-schedule',
   components: {
     ComboboxNumber,
-    Datepicker,
+    DateField,
     Schedule
   },
 
@@ -119,15 +109,7 @@ export default {
       'openProductions',
       'taskTypeMap',
       'user'
-    ]),
-
-    locale () {
-      if (this.user.locale === 'fr_FR') {
-        return fr
-      } else {
-        return en
-      }
-    }
+    ])
   },
 
   methods: {

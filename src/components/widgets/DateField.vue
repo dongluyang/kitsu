@@ -2,20 +2,26 @@
 <div :class="{ field: withMargin }">
   <label class="label" v-if="label">{{ label }}</label>
   <p class="control flexrow">
-    <datepicker
-      wrapper-class="datepicker"
-      :input-class="{
-        'date-input': true,
-        input: true,
-        short: shortDate
-      }"
-      :language="locale"
-      :disabled-dates="disabledDates"
-      :monday-first="true"
-      format="yyyy-MM-dd"
-      @input="$emit('update:modelValue', localValue)"
+    <date-picker
       v-model="localValue"
-    />
+    >
+      <template
+        :v-slot="{ inputValue, inputEvents }"
+        :locale="locale"
+        :attributes="attributes"
+        @dayclick="onDayClick"
+      >
+        <input
+          :class="{
+            'date-input': true,
+            input: true,
+            short: shortDate
+          }"
+          :value="inputValue"
+          v-on="inputEvents"
+        />
+      </template>
+    </date-picker>
     <span
       class="clear-button unselectable"
       @click="event => clearValue(event)"
@@ -28,17 +34,18 @@
 </template>
 
 <script>
+import moment from 'moment-timezone'
 import { mapGetters, mapActions } from 'vuex'
-import { en, fr } from 'vuejs-datepicker/dist/locale'
-import Datepicker from 'vuejs-datepicker'
+import { DatePicker } from 'v-calendar'
 
 import { domMixin } from '@/components/mixins/dom'
+import { formatSimpleDate } from '@/lib/time'
 
 export default {
   name: 'date-field',
 
   components: {
-    Datepicker
+    DatePicker
   },
 
   mixins: [domMixin],
@@ -72,11 +79,17 @@ export default {
 
   data () {
     return {
-      localValue: null
+      localValue: null,
+      attributes: {
+        popover: {
+          visibility: 'visible'
+        }
+      }
     }
   },
 
   mounted () {
+    console.log(this.modelValue)
     this.localValue = this.modelValue
   },
 
@@ -85,12 +98,12 @@ export default {
       'user'
     ]),
 
+    renderedDate (date) {
+      return formatSimpleDate(date)
+    },
+
     locale () {
-      if (this.user.locale === 'fr_FR') {
-        return fr
-      } else {
-        return en
-      }
+      return this.user.locale.substring(0, 2)
     }
   },
 
@@ -102,6 +115,10 @@ export default {
       this.pauseEvent(event)
       this.localValue = null
       this.$emit('update:modelValue', null)
+    },
+
+    onDayClicked (day) {
+      this.$emit('update:modelValue', moment(day.date))
     }
   },
 

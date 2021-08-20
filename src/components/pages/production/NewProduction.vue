@@ -109,27 +109,17 @@
               }}
             </label>
             <div class="date-picker-wrapper">
-            <datepicker
-              wrapper-class="datepicker"
-              input-class=" is-small date-input input"
-              label="Start date"
+            <date-field
+              :label="$t('main.start_date')"
               :placeholder="startDatePlaceholder"
-              :language="locale"
               :disabled-dates="{ days: [6, 0] }"
-              :monday-first="true"
-              format="yyyy-MM-dd"
               v-model="productionToCreate.settings.dateStart"
             />
             <span class="input-separator">-</span>
-            <datepicker
-              wrapper-class="datepicker"
-              input-class="is-small date-input input"
-              :language="locale"
+            <date-field
+              :label="$t('main.end_date')"
+              :placeholder="startDatePlaceholder"
               :disabled-dates="{ days: [6, 0] }"
-              :placeholder="endDatePlaceholder"
-              :monday-first="true"
-              :disabledDates="{ to: productionToCreate.settings.dateStart }"
-              format="yyyy-MM-dd"
               v-model="productionToCreate.settings.dateEnd"
             />
             </div>
@@ -407,9 +397,7 @@
 
 <script>
 import draggable from 'vuedraggable'
-import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
-import { en, fr } from 'vuejs-datepicker/dist/locale'
 import { mapActions, mapGetters } from 'vuex'
 
 import csv from '@/lib/csv'
@@ -421,6 +409,7 @@ import { PRODUCTION_TYPE_OPTIONS } from '@/lib/productions'
 import Combobox from '@/components/widgets/Combobox'
 import ComboboxTaskType from '@/components/widgets/ComboboxTaskType'
 import ComboboxStatus from '@/components/widgets/ComboboxStatus'
+import DateField from '@/components/widgets/DateField'
 import ImportModal from '@/components/modals/ImportModal'
 import ImportRenderModal from '@/components/modals/ImportRenderModal'
 import ManageShotsModal from '@/components/modals/ManageShotsModal'
@@ -437,7 +426,7 @@ export default {
     Combobox,
     ComboboxTaskType,
     ComboboxStatus,
-    Datepicker,
+    DateField,
     ImportModal,
     ImportRenderModal,
     ManageShotsModal,
@@ -548,14 +537,6 @@ export default {
         collection.unshift('Episode')
       }
       return collection
-    },
-
-    locale () {
-      if (this.user.locale === 'fr_FR') {
-        return fr
-      } else {
-        return en
-      }
     },
 
     allowedProductionTypes () {
