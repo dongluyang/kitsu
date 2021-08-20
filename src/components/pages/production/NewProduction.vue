@@ -1019,52 +1019,38 @@ span.input-separator {
   }
 }
 
->>> .input.is-small {
+:deep(.input.is-small) {
   height: 2rem;
   font-size: 1rem;
   padding: 0 0.5rem;
 }
 
->>> .input.is-size-2 {
+:deep(.input.is-size-2) {
   width: 3rem;
 }
 
->>> .input.is-size-3 {
+:deep(.input.is-size-3) {
   width: 3.5rem;
 }
 
->>> .input.is-size-4 {
+:deep(.input.is-size-4) {
   width: 5rem;
 }
 
->>> .datepicker {
-  display: inline-flex;
-}
-
-.date-picker-wrapper {
-  margin-top: .5rem;
-  display: flex;
-  align-items: center;
-}
-
->>> .datepicker input.date-input {
-  width: 6.5rem;
-}
-
->>> .task-type.task-type-name:hover {
+:deep(.task-type.task-type-name:hover) {
   cursor: grab;
 }
->>> .task-type.task-type-name {
+:deep(.task-type.task-type-name) {
   margin-right: 5px;
   margin-bottom: 5px;
   height: 2.3rem;
 }
->>> .task-type-combo {
+:deep(.task-type-combo) {
   display: inline-flex;
   width: auto;
   min-width: auto;
 }
->>> .selected-task-type-line {
+:deep(.selected-task-type-line) {
   padding: 0;
   margin-right: 0;
 }
