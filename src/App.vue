@@ -585,47 +585,6 @@ body {
     background-color: #5E6169;
   }
 
-  .vdp-datepicker__calendar {
-    background-color: #36393F;
-    border-color: #25282E;
-
-    .prev,
-    .next,
-    .day__month_btn,
-    header span:hover {
-      background: #36393F;
-    }
-
-    header .prev::after,
-    header .prev::after {
-      border-right-color: #EEE;
-    }
-
-    header .next::after,
-    header .next::after {
-      border-left-color: #EEE;
-    }
-
-    header .next.disabled::after,
-    header .next.disabled::after {
-      border-left-color: #666;
-    }
-
-    .cell.year.disabled,
-    .cell.month.disabled,
-    .cell.day.disabled {
-      color: $grey;
-    }
-  }
-
-  .hero .control .icon {
-    color: #555;
-  }
-
-  .v-autocomplete-input {
-    background: $dark-grey;
-    color: white;
-  }
 } // End dark theme
 
 #app .router-link-active {
@@ -1671,37 +1630,17 @@ th.validation-cell {
   }
 }
 
-.theme .datepicker .vdp-datepicker__calendar {
-  z-index: 2000;
+.theme .v3dp__datepicker .v3dp__input_wrapper input {
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  padding: 1em;
+  height: 3em;
+  width: 110px;
 
-  .cell.year:not(.blank):not(.disabled):hover,
-  .cell.month:not(.blank):not(.disabled):hover,
-  .cell.day:not(.blank):not(.disabled):hover {
-    background: var(--background-selectable);
-    border: 1px solid transparent;
-  }
-
-  .cell.year.disabled:hover,
-  .cell.month.disabled:hover,
-  .cell.day.disabled:hover {
-    border: 1px solid transparent;
-  }
-
-  .cell.year.selected,
-  .cell.month.selected,
-  .cell.day.selected {
-    background: var(--background-selected);
-  }
-
-  .cell.year.selected:not(.blank):not(.disabled):hover,
-  .cell.month.selected:not(.blank):not(.disabled):hover,
-  .cell.day.selected:not(.blank):not(.disabled):hover {
-    border: 1px solid transparent;
-    background: var(--background-selected);
-  }
-
-  header span:not(.disabled):hover {
-    background: var(--background-selectable);
+  &:focus {
+    border-color: #00B242;
+    outline: none;
   }
 }
 

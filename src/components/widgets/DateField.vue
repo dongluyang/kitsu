@@ -2,26 +2,11 @@
 <div :class="{ field: withMargin }">
   <label class="label" v-if="label">{{ label }}</label>
   <p class="control flexrow">
-    <date-picker
+    <datepicker
+      :lower-limit="disabledDates.to"
+      :upper-limit="disabledDates.from"
       v-model="localValue"
-    >
-      <template
-        :v-slot="{ inputValue, inputEvents }"
-        :locale="locale"
-        :attributes="attributes"
-        @dayclick="onDayClick"
-      >
-        <input
-          :class="{
-            'date-input': true,
-            input: true,
-            short: shortDate
-          }"
-          :value="inputValue"
-          v-on="inputEvents"
-        />
-      </template>
-    </date-picker>
+    />
     <span
       class="clear-button unselectable"
       @click="event => clearValue(event)"
@@ -36,7 +21,7 @@
 <script>
 import moment from 'moment-timezone'
 import { mapGetters, mapActions } from 'vuex'
-import { DatePicker } from 'v-calendar'
+import Datepicker from 'vue3-datepicker'
 
 import { domMixin } from '@/components/mixins/dom'
 import { formatSimpleDate } from '@/lib/time'
@@ -45,7 +30,7 @@ export default {
   name: 'date-field',
 
   components: {
-    DatePicker
+    Datepicker
   },
 
   mixins: [domMixin],
@@ -126,7 +111,9 @@ export default {
     modelValue () {
       this.localValue = this.modelValue
     },
+
     localValue () {
+      this.$emit('update:modelValue', this.localValue)
     }
   }
 }
