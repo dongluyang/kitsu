@@ -1307,7 +1307,7 @@ export default {
 }
 
 .entity-name-list {
-  padding-top: 85px;
+  padding-top: 97px;
 }
 
 .entity-line {
