@@ -94,7 +94,7 @@
             <div
               v-if="taskPreviews && taskPreviews.length > 0"
             >
-              <preview-player
+              <!--preview-player
                 :entity-preview-files="taskEntityPreviews"
                 :last-preview-files="lastFivePreviews"
                 :previews="currentPreview ? currentPreview.previews : []"
@@ -111,7 +111,7 @@
                 @comment-added="onCommentAdded"
                 @time-updated="onTimeUpdated"
                 ref="preview-player"
-              />
+              /-->
             </div>
 
             <div

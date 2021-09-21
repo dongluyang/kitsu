@@ -14,25 +14,28 @@
           <th scope="col" class="actions"></th>
         </tr>
       </thead>
-      <draggable
+
+      <div
         class="datatable-body"
-        tag="tbody"
-        :sort="true"
-        @end="updatePriorityAssets"
-        v-model="assetsItems"
       >
-        <template>
-        <tr class="datatable-type-header" slot="header">
+        <tr class="datatable-type-header">
           <th scope="rowgroup" colspan="4">
             <span class="datatable-row-header">
               {{ $t('assets.title') }}
             </span>
           </th>
         </tr>
-        <tr
+
+      <draggable
+        tag="tbody"
+        :sort="true"
+        v-model="assetsItems"
+      >
+        <template #item="{taskType}">
+          {{ taskType.name }}
+        <!--tr
           class="datatable-row tasktype-item"
           :key="taskType.id"
-          v-for="taskType in assetsItems"
         >
           <td class="department">
             <department-name
@@ -49,24 +52,29 @@
             @delete-clicked="$emit('delete-clicked', taskType)"
             @edit-clicked="$emit('edit-clicked', taskType)"
           />
-        </tr>
+        </tr-->
         </template>
       </draggable>
-      <draggable
+
+      </div>
+      <div
         class="datatable-body"
-        v-model="shotsItems"
-        draggable=".tasktype-item"
-        tag="tbody"
-        :sort="true"
-        @end="updatePriorityShots"
       >
-        <tr class="datatable-type-header" slot="header">
+        <tr class="datatable-type-header">
           <th scope="rowgroup" colspan="4">
             <span class="datatable-row-header">
               {{ $t('shots.title') }}
             </span>
           </th>
         </tr>
+      <!--draggable
+        v-model="shotsItems"
+        draggable=".tasktype-item"
+        tag="tbody"
+        :sort="true"
+        @end="updatePriorityShots"
+      >
+        <template>
         <tr
           class="datatable-row tasktype-item"
           v-for="taskType in shotsItems" :key="taskType.id"
@@ -87,7 +95,9 @@
             @edit-clicked="$emit('edit-clicked', taskType)"
           />
         </tr>
-      </draggable>
+        </template>
+      </draggable-->
+      </div>
     </table>
   </div>
 
@@ -106,10 +116,10 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import draggable from 'vuedraggable'
-import RowActionsCell from '../cells/RowActionsCell'
-import TableInfo from '../widgets/TableInfo'
-import TaskTypeCell from '../cells/TaskTypeName'
-import DepartmentName from '../widgets/DepartmentName.vue'
+// import RowActionsCell from '../cells/RowActionsCell'
+// import TableInfo from '../widgets/TableInfo'
+// import TaskTypeCell from '../cells/TaskTypeName'
+// import DepartmentName from '../widgets/DepartmentName.vue'
 
 export default {
   name: 'task-type-list',
@@ -128,11 +138,11 @@ export default {
   },
 
   components: {
-    draggable,
-    DepartmentName,
-    RowActionsCell,
-    TableInfo,
-    TaskTypeCell
+    draggable
+    // DepartmentName,
+    // RowActionsCell,
+    // TableInfo,
+    // TaskTypeCell
   },
 
   mounted () {},

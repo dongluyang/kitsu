@@ -7,6 +7,7 @@
     <vue-slider
       class="flexrow-item slider"
       ref="slider"
+      :included="true"
       v-model="value"
       v-bind="options"
     />
@@ -38,9 +39,13 @@ export default {
         width: 400,
         min: 0,
         max: 10,
-        interval: 0.5,
         lazy: true,
-        marks: true,
+        marks: [
+          0, 0.25, 0.5, 1,
+          1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5,
+          5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9,
+          9.5, 10
+        ],
         hideLabel: true,
         piecewise: true,
         tooltip: 'focus',

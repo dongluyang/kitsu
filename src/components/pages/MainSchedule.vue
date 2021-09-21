@@ -7,8 +7,6 @@
   >
     <div class="flexrow project-dates">
       <div class="flexrow-item">
-        <label class="label">
-        </label>
         <date-field
           :label="$t('main.start_date')"
           :disabled-dates="{ days: [6, 0] }"
@@ -16,9 +14,6 @@
         />
       </div>
       <div class="flexrow-item field">
-        <label class="label">
-          {{ $t('main.end_date') }}
-        </label>
         <date-field
           :label="$t('main.end_date')"
           :disabled-dates="{ days: [6, 0] }"
@@ -203,6 +198,7 @@ export default {
   },
 
   watch: {
+    selectedStartDate () { }
   },
 
   metaInfo () {

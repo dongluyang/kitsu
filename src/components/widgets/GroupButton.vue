@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .group-button {
   display: flex;
   align-items: stretch;
@@ -46,6 +46,8 @@ export default {
 
   .status-selector:last-child > :first-child,
   .button.is-primary:last-child {
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
   }

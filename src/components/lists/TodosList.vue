@@ -195,13 +195,28 @@ export default {
     ValidationCell
   },
 
-  props: [
-    'done',
-    'tasks',
-    'isLoading',
-    'isError',
-    'selectionGrid'
-  ],
+  props: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
+    isError: {
+      type: Boolean,
+      default: false
+    },
+    tasks: {
+      type: Array,
+      default: () => []
+    },
+    selectionGrid: {
+      type: Object,
+      default: () => {}
+    }
+  },
 
   data () {
     return {
@@ -263,7 +278,9 @@ export default {
 
     onLineClicked (i, event) {
       const ref = 'validation-' + i + '-0'
-      const validationCell = this.$refs[ref][0]
+      console.log(ref, Object.keys(this.$refs))
+      console.log(Object.keys(this.$refs[ref]))
+      const validationCell = this.$refs[ref]
       validationCell.select(event)
     },
 
@@ -318,9 +335,21 @@ export default {
     getTaskType (entry) {
       const taskType = this.taskTypeMap.get(entry.task_type_id)
       const production = this.productionMap.get(entry.project_id)
-      taskType.episode_id = entry.episode_id
+      this.$store.commit(
+        'SET_EPISODE_ON_TASK_TYPE',
+        {
+          taskType,
+          episodeId: entry.episode_id
+        }
+      )
       if (production && production.production_type === 'tvshow' && !entry.episode_id) {
-        taskType.episode_id = production.first_episode_id
+        this.$store.commit(
+          'SET_EPISODE_ON_TASK_TYPE',
+          {
+            taskType,
+            episodeId: production.first_episode_id
+          }
+        )
       }
       return taskType
     },
