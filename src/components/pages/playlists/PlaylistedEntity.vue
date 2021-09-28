@@ -17,8 +17,8 @@
           <icon name="x" />
         </span>
         <entity-thumbnail
-          width="150px"
-          height="103px"
+          :width="150"
+          :height="103"
           :preview-file-id="previewFileId"
         />
       </div>
