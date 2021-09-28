@@ -296,7 +296,7 @@ export default {
     })
   },
 
-  destroyed () {
+  unmounted () {
     Array.from(
       document.getElementsByClassName(this.uniqueClassName)
     ).forEach(element => {

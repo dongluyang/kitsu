@@ -4,8 +4,8 @@
   :href="originalPath"
   target="_blank"
   :style="{
-    width: emptyWidth + 'px',
-    height: emptyHeight + 'px',
+    width: width + 'px',
+    height: height + 'px',
   }"
   v-if="isPreview && withLink"
 >

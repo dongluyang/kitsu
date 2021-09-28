@@ -14,6 +14,7 @@
   <icon
     :class="iconClass"
     :name="name"
+    v-if="name && name !== ''"
   />
   <span
     :class="{
@@ -101,7 +102,7 @@ export default {
         soundoff: 'volume-x',
         soundon: 'volume-2'
       }
-      return names[this.icon] || this.icon || 'plus'
+      return names[this.icon] || this.icon || ''
     },
 
     iconClass () {

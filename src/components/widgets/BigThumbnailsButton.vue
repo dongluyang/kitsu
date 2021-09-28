@@ -9,20 +9,18 @@
   :title="$t(isBigThumbnails ? 'tasks.small_thumbnails' : 'tasks.big_thumbnails')"
   @click="toggleBigThumbnails"
 >
-  <grid-icon class="icon is-small" />
+  <icon name="grid" class="icon is-small" />
 </button>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import {
-  GridIcon
-} from 'vue-feather-icons'
+import Icon from '@/components/widgets/Icon'
 
 export default {
   name: 'big-thumbnails-button',
   components: {
-    GridIcon
+    Icon
   },
 
   props: {
