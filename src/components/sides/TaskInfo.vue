@@ -94,7 +94,7 @@
             <div
               v-if="taskPreviews && taskPreviews.length > 0"
             >
-              <!--preview-player
+              <preview-player
                 :entity-preview-files="taskEntityPreviews"
                 :last-preview-files="lastFivePreviews"
                 :previews="currentPreview ? currentPreview.previews : []"
@@ -103,15 +103,15 @@
                 :read-only="!isCurrentUserManager"
                 :is-assigned="isAssigned"
                 :task="task"
-                :extraWide="isExtraWide"
+                :extra-wide="isExtraWide"
+                @add-extra-preview="onAddExtraPreview"
                 @annotation-changed="onAnnotationChanged"
                 @change-current-preview="changeCurrentPreview"
-                @add-extra-preview="onAddExtraPreview"
-                @remove-extra-preview="onRemoveExtraPreview"
                 @comment-added="onCommentAdded"
+                @remove-extra-preview="onRemoveExtraPreview"
                 @time-updated="onTimeUpdated"
                 ref="preview-player"
-              /-->
+              />
             </div>
 
             <div

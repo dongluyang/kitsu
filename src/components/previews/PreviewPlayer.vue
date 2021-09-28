@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <task-info
+      <!--task-info
         name="task-info"
         ref="task-info-player"
         :class="{
@@ -71,7 +71,7 @@
         :current-parent-preview="currentPreview"
         @comment-added="$emit('comment-added')"
         @time-code-clicked="timeCodeClicked"
-      />
+      /-->
     </div>
 
   </div>
@@ -424,7 +424,7 @@ import Icon from '@/components/widgets/Icon'
 import PencilPicker from '@/components/widgets/PencilPicker'
 import PreviewViewer from '@/components/previews/PreviewViewer'
 import RevisionPreview from '@/components/previews/RevisionPreview'
-const TaskInfo = () => import('@/components/sides/TaskInfo')
+// const TaskInfo = () => import('@/components/sides/TaskInfo')
 
 export default {
   name: 'preview-player',
@@ -439,8 +439,8 @@ export default {
     Icon,
     PencilPicker,
     PreviewViewer,
-    RevisionPreview,
-    TaskInfo
+    RevisionPreview
+    // TaskInfo
   },
 
   props: {
@@ -785,6 +785,7 @@ export default {
     },
 
     getCurrentTime () {
+      if (!this.previewView) return 0
       const currentTimeRaw = this.previewViewer.getCurrentTimeRaw()
       return roundToFrame(currentTimeRaw, this.fps) || 0
     },
@@ -803,11 +804,13 @@ export default {
 
     pause () {
       this.isPlaying = false
-      if (this.previewViewer) this.previewViewer.pause()
       if (this.comparisonViewer) this.comparisonViewer.pause()
-      const currentTimeRaw = this.previewViewer.getCurrentTimeRaw()
-      const currentTime = roundToFrame(currentTimeRaw, this.fps) || 0
-      this.setCurrentTime(currentTime)
+      if (this.previewViewer) {
+        this.previewViewer.pause()
+        const currentTimeRaw = this.previewViewer.getCurrentTimeRaw()
+        const currentTime = roundToFrame(currentTimeRaw, this.fps) || 0
+        this.setCurrentTime(currentTime)
+      }
     },
 
     goPreviousFrame () {
@@ -976,8 +979,10 @@ export default {
         this.fullScreen = false
         this.endAnnotationSaving()
         this.$nextTick(() => {
-          this.previewViewer.resetVideo()
-          this.previewViewer.resetPicture()
+          if (this.previewViewer) {
+            this.previewViewer.resetVideo()
+            this.previewViewer.resetPicture()
+          }
           this.fixCanvasSize(this.getCurrentPreviewDimensions())
           this.reloadAnnotations()
           this.loadAnnotation()
@@ -1120,7 +1125,7 @@ export default {
 
     saveAnnotations () {
       let currentTime = 0
-      if (this.isMovie) {
+      if (this.isMovie && this.previewViewer) {
         const currentTimeRaw = this.previewViewer.getCurrentTimeRaw()
         currentTime = roundToFrame(currentTimeRaw, this.fps) || 0
       }
@@ -1227,8 +1232,10 @@ export default {
           this.$refs['task-info-player'].focusCommentTextarea()
         }
         // this.resetHeight()
-        this.previewViewer.resetVideo()
-        this.previewViewer.resetPicture()
+        if (this.previewViewer) {
+          this.previewViewer.resetVideo()
+          this.previewViewer.resetPicture()
+        }
         this.fixCanvasSize(this.getCurrentPreviewDimensions())
         this.endAnnotationSaving()
         this.$nextTick(() => {
@@ -1308,7 +1315,9 @@ export default {
       if (this.isPicture && this.loupe) {
         const width = this.canvasWrapper.style.width
         const height = this.canvasWrapper.style.height
-        this.previewViewer.updateLoupePosition(event, { width, height })
+        if (this.previewViewer) {
+          this.previewViewer.updateLoupePosition(event, { width, height })
+        }
       } else if (this.isMovie && this.scrubbing) {
         const x = event.e.clientX
         if (x - this.scrubStartX < 0) {
@@ -1377,8 +1386,8 @@ export default {
     setCurrentTime (time) {
       const currentTime = roundToFrame(this.currentTimeRaw, this.fps)
       if (time !== currentTime) {
-        if (this.comparisonViewer) this.comparisonViewer.setCurrentTime(time)
-        this.previewViewer.setCurrentTime(time)
+        if (this.comparisonViewer) this.comparisonViewer.setCurrentTimeRaw(time)
+        if (this.previewViewer) this.previewViewer.setCurrentTime(time)
       }
     },
 
@@ -1475,7 +1484,7 @@ export default {
 
     extraWide () {
       this.endAnnotationSaving()
-      this.previewViewer.resize()
+      if (this.previewViewer) this.previewViewer.resize()
       this.$nextTick(() => {
         this.fixCanvasSize(this.getCurrentPreviewDimensions())
       })
@@ -1489,8 +1498,10 @@ export default {
     isOrdering () {
       this.$nextTick(() => {
         this.fixCanvasSize(this.getCurrentPreviewDimensions())
-        this.previewViewer.resetVideo()
-        this.previewViewer.resetPicture()
+        if (this.previewViewer) {
+          this.previewViewer.resetVideo()
+          this.previewViewer.resetPicture()
+        }
       })
     },
 

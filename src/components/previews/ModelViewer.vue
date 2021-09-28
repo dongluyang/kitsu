@@ -18,8 +18,6 @@
 
 <script>
 import {
-} from 'vue-feather-icons'
-import {
   clearScene,
   loadObject,
   prepareScene
