@@ -73,7 +73,7 @@
             name: 'todos-tab',
             params: { tab: 'todos' }
           }"
-          v-if="!isCurrentUserAdmin"
+          v-if="!isCurrentUserAdmin && !isCurrentUserClient"
         >
           {{ $t('tasks.my_tasks') }}
         </router-link>
@@ -84,7 +84,7 @@
             name: 'todos-tab',
             params: { tab: 'timesheets' }
           }"
-          v-if="!isCurrentUserAdmin"
+          v-if="!isCurrentUserAdmin && !isCurrentUserClient"
         >
           {{ $t('timesheets.title') }}
         </router-link>
