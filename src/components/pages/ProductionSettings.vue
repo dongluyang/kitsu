@@ -288,7 +288,7 @@ export default {
 
   metaInfo () {
     return {
-      title: `${this.currentProduction.name} | ${this.$t('settings.title')} - Kitsu`
+      title: `${this.currentProduction.name} | ${this.$t('settings.title')} - Cgyun`
     }
   }
 }

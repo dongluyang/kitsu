@@ -136,19 +136,19 @@
           </span>
         </li>
         <hr />
-        <a href="https://kitsu.cg-wire.com" target="_blank">
-          <li>
-            {{ $t("main.documentation")}}
-          </li>
-        </a>
-        <a
-          href="https://www.youtube.com/playlist?list=PLp_1gB5ZBHXqnQgZ4TCrAt7smxesaDo29"
-          target="_blank"
-        >
-          <li>
-            {{ $t('main.tutorials') }}
-          </li>
-        </a>
+<!--        <a href="https://kitsu.cg-wire.com" target="_blank">-->
+<!--          <li>-->
+<!--            {{ $t("main.documentation")}}-->
+<!--          </li>-->
+<!--        </a>-->
+<!--        <a-->
+<!--          href="https://www.youtube.com/playlist?list=PLp_1gB5ZBHXqnQgZ4TCrAt7smxesaDo29"-->
+<!--          target="_blank"-->
+<!--        >-->
+<!--          <li>-->
+<!--            {{ $t('main.tutorials') }}-->
+<!--          </li>-->
+<!--        </a>-->
         <a
           @click="display.shortcutModal = true"
         >
@@ -157,24 +157,24 @@
           </li>
         </a>
         <hr />
-        <a href="https://discord.gg/VbCxtKN" target="_blank">
-          <li>
-            Discord
-          </li>
-        </a>
-        <a href="https://cgwire.canny.io" target="_blank">
-          <li>
-            Roadmap / Feedback
-          </li>
-        </a>
-        <hr />
-        <a href="https://cg-wire.com/en/about.html" target="_blank">
-          <li>
-            {{ $t("main.about") }}
-          </li>
-        </a>
+<!--        <a href="https://discord.gg/VbCxtKN" target="_blank">-->
+<!--          <li>-->
+<!--            Discord-->
+<!--          </li>-->
+<!--        </a>-->
+<!--        <a href="https://cgwire.canny.io" target="_blank">-->
+<!--          <li>-->
+<!--            Roadmap / Feedback-->
+<!--          </li>-->
+<!--        </a>-->
+<!--        <hr />-->
+<!--        <a href="https://cg-wire.com/en/about.html" target="_blank">-->
+<!--          <li>-->
+<!--            {{ $t("main.about") }}-->
+<!--          </li>-->
+<!--        </a>-->
         <li class="version">
-          Kitsu {{ kitsuVersion }}
+          Cgyun {{ kitsuVersion }}
         </li>
         <hr />
         <li class="flexrow" @click="onLogoutClicked">

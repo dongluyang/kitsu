@@ -1140,7 +1140,8 @@ export default {
           previewId = preview.id
           extension = preview.extension
         }
-        return `/api/pictures/originals/preview-files/${previewId}.${extension}`
+        const type = extension === 'mp4' ? 'movies' : 'pictures'
+        return `/api/${type}/originals/preview-files/${previewId}.${extension}`
       } else {
         return ''
       }

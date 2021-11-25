@@ -11,13 +11,16 @@ import {
   DATA_LOADING_END,
 
   TOGGLE_USER_MENU,
-  RESET_ALL
+  RESET_ALL,
+  CHANGE_CODE, CHANGE_STATE
 } from '../mutation-types'
 import auth from '../../lib/auth'
 
 const initialState = {
   email: '',
   password: '',
+  code: '',
+  stateValue: '',
   isLdap: false,
   isLoginLoading: false,
   isLoginError: false,
@@ -31,6 +34,8 @@ const state = {
 const getters = {
   email: state => state.email,
   password: state => state.password,
+  code: state => state.code,
+  stateValue: state => state.stateValue,
   isLdap: state => state.isLdap,
   isLoginLoading: state => state.isLoginLoading,
   isLoginError: state => state.isLoginError,
@@ -40,6 +45,12 @@ const getters = {
 const actions = {
   changeEmail ({ commit, state }, email) {
     commit(CHANGE_EMAIL, email)
+  },
+  changeCode ({ commit, state }, code) {
+    commit(CHANGE_CODE, code)
+  },
+  changeState ({ commit, state }, stateValue) {
+    commit(CHANGE_STATE, stateValue)
   },
 
   changePassword ({ commit, state }, password) {
@@ -75,6 +86,22 @@ const actions = {
         callback(null, true)
       }
     })
+  },
+  ssoLogIn ({ commit, state }, callback) {
+    commit(LOGIN_RUN)
+    auth.ssoLogIn(
+      state.code,
+      state.stateValue,
+      (err) => {
+        if (err) {
+          commit(LOGIN_FAILURE)
+          callback(err, false)
+        } else {
+          commit(LOGIN_SUCCESS)
+          callback(null, true)
+        }
+      }
+    )
   },
 
   resetPassword ({ commit }, email) {
@@ -133,6 +160,12 @@ const mutations = {
 
   [DATA_LOADING_END] (state) {
     state.isDataLoading = false
+  },
+  [CHANGE_CODE] (state, code) {
+    state.code = code
+  },
+  [CHANGE_STATE] (state, stateValue) {
+    state.stateValue = stateValue
   },
 
   [RESET_ALL] (state, email) {

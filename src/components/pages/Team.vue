@@ -95,7 +95,7 @@ export default {
 
   metaInfo () {
     return {
-      title: `${this.currentProduction.name} | ${this.$t('people.team')} - Kitsu`
+      title: `${this.currentProduction.name} | ${this.$t('people.team')} - Cgyun`
     }
   }
 }

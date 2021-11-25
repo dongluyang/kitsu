@@ -480,13 +480,13 @@ export default {
         if (this.currentEpisode.id === 'main') episodeName = 'Main Pack'
       }
       return `${productionName} - ${episodeName}` +
-             ` | ${this.$t('assets.title')} - Kitsu`
+             ` | ${this.$t('assets.title')} - Cgyun`
     },
 
     shortPageTitle () {
       const productionName =
         this.currentProduction ? this.currentProduction.name : ''
-      return `${productionName} ${this.$t('assets.title')} - Kitsu`
+      return `${productionName} ${this.$t('assets.title')} - Cgyun`
     },
 
     dataMatchers () {
@@ -898,7 +898,7 @@ export default {
         .then((assetLines) => {
           const nameData = [
             moment().format('YYYY-MM-DD'),
-            'kitsu',
+            'Cgyun',
             this.currentProduction.name,
             this.$t('assets.title')
           ]

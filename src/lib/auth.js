@@ -34,7 +34,30 @@ const auth = {
         }
       })
   },
-
+  ssoLogIn (code, state, callback) {
+    superagent
+      .post('/api/auth/sso2/login')
+      .send({ code, state })
+      .end((err, res) => {
+        if (err) {
+          if (res.body.default_password) {
+            err.default_password = res.body.default_password
+            err.token = res.body.token
+          }
+          callback(err)
+        } else {
+          if (res.body.login) {
+            const user = res.body.user
+            const isLdap = res.body.ldap
+            store.commit(DATA_LOADING_START, { isLdap })
+            callback(null, user)
+          } else {
+            store.commit(USER_LOGIN_FAIL)
+            callback(new Error('Login failed'))
+          }
+        }
+      })
+  },
   logout (callback) {
     superagent
       .get('/api/auth/logout')

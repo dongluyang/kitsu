@@ -880,7 +880,7 @@ export default {
   metaInfo () {
     const pageTitle = this.$t('breakdown.title')
     return {
-      title: `${this.currentProduction.name} ${pageTitle} - Kitsu`
+      title: `${this.currentProduction.name} ${pageTitle} - Cgyun`
     }
   }
 }

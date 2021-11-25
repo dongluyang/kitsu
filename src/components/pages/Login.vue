@@ -5,7 +5,7 @@
         <div class="has-text-centered login-header">
           <img src="../../assets/kitsu.png" />
           <h1 class="title">
-            Kitsu
+            Cgyun
           </h1>
         </div>
         <form>
@@ -84,9 +84,32 @@ export default {
     ])
   },
 
+  mounted () {
+    const code = this.$route.query.code
+    const stateValue = this.$route.query.state
+    this.$store.dispatch('changeCode', code)
+    this.$store.dispatch('changeState', stateValue)
+    if (code != null) {
+      this.ssoLogIn((err, success) => {
+        if (err) {
+          if (err.default_password) {
+            this.$router.push({
+              name: 'reset-change-password',
+              params: { token: err.token }
+            })
+          } else {
+            console.error(err)
+          }
+        }
+        if (success) this.$router.push('/')
+      })
+    }
+  },
+
   methods: {
     ...mapActions([
-      'logIn'
+      'logIn',
+      'ssoLogIn'
     ]),
 
     updateEmail (e) {
