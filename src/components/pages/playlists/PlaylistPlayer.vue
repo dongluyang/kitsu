@@ -1151,7 +1151,8 @@ export default {
       if (this.currentPreviewToCompare && this.isPictureComparison) {
         const extension = this.currentPreviewToCompare.extension
         const previewId = this.currentPreviewToCompare.id
-        return `/api/pictures/originals/preview-files/${previewId}.${extension}`
+        const type = this.currentPreviewToCompare.extension === 'mp4' ? 'movies' : 'pictures'
+        return `/api/${type}/originals/preview-files/${previewId}.${extension}`
       } else {
         return ''
       }
@@ -1161,13 +1162,15 @@ export default {
       if (!this.currentPreview) return ''
       const previewId = this.currentPreview.id
       const extension = this.currentPreview.extension
-      return `/api/pictures/originals/preview-files/${previewId}.${extension}`
+      const type = this.currentPreview.extension === 'mp4' ? 'movies' : 'pictures'
+      return `/api/${type}/originals/preview-files/${previewId}.${extension}`
     },
 
     currentPreviewDlPath () {
       if (!this.currentPreview) return ''
       const previewId = this.currentPreview.id
-      return `/api/pictures/originals/preview-files/${previewId}/download`
+      const type = this.currentPreview.extension === 'mp4' ? 'movies' : 'pictures'
+      return `/api/${type}/originals/preview-files/${previewId}/download`
     },
 
     currentEntity () {
@@ -2669,10 +2672,10 @@ export default {
       if (!this.playlist.id) {
         return
       }
+
       if (!this.joinedRoom) {
         return
       }
-
       this.$socket.emit('preview-room:update-playing-status', {
         playlist_id: this.playlist.id,
         is_playing: this.isPlaying,
