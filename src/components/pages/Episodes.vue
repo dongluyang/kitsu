@@ -347,7 +347,7 @@ export default {
 
   metaInfo () {
     return {
-      title: `${this.currentProduction.name} ${this.$t('episodes.title')} - Kitsu`
+      title: `${this.currentProduction.name} ${this.$t('episodes.title')} - Cgyun`
     }
   }
 }

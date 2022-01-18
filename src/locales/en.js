@@ -214,7 +214,7 @@ export default {
     back_to_login: 'Go back to login page',
     forgot_password: 'Forgot password?',
     login: 'Log in',
-    login_failed: 'Log in failed, please verify your credentials',
+    login_failed: 'Log in failed, please verify your credentials or apply for permission from admin',
     login_page: 'Cancel',
     redirecting: 'Redirecting in {secondsLeft} seconds...',
     reset_change_password: 'Change password',

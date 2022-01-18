@@ -934,7 +934,7 @@ export default {
         .then((shotLines) => {
           const nameData = [
             moment().format('YYYY-MM-DD'),
-            'kitsu',
+            'Cgyun',
             this.currentProduction.name,
             this.$t('shots.title')
           ]
@@ -1092,11 +1092,11 @@ export default {
       return {
         title: `${this.currentProduction ? this.currentProduction.name : ''}` +
                ` - ${this.currentEpisode ? this.currentEpisode.name : ''}` +
-               ` | ${this.$t('shots.title')} - Kitsu`
+               ` | ${this.$t('shots.title')} - Cgyun`
       }
     } else {
       return {
-        title: `${this.currentProduction.name} ${this.$t('shots.title')} - Kitsu`
+        title: `${this.currentProduction.name} ${this.$t('shots.title')} - Cgyun`
       }
     }
   }

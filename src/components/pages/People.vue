@@ -436,7 +436,7 @@ export default {
 
   metaInfo () {
     return {
-      title: `${this.$t('people.title')} - Kitsu`
+      title: `${this.$t('people.title')} - Cgyun`
     }
   }
 }

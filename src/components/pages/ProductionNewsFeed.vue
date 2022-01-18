@@ -735,11 +735,11 @@ export default {
   metaInfo () {
     if (this.currentProduction) {
       return {
-        title: `${this.currentProduction.name} ${this.$t('news.title')} - Kitsu`
+        title: `${this.currentProduction.name} ${this.$t('news.title')} - Cgyun`
       }
     } else {
       return {
-        title: `${this.$t('news.title')} - Kitsu`
+        title: `${this.$t('news.title')} - Cgyun`
       }
     }
   }

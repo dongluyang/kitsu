@@ -382,12 +382,12 @@ export default {
       return {
         title: `${this.currentProduction ? this.currentProduction.name : ''}` +
                ` - ${this.currentEpisode ? this.currentEpisode.name : ''}` +
-               ` | ${this.$t('schedule.title')} - Kitsu`
+               ` | ${this.$t('schedule.title')} - Cgyun`
       }
     } else {
       return {
         title: `${this.currentProduction.name} ` +
-               `| ${this.$t('schedule.title')} - Kitsu`
+               `| ${this.$t('schedule.title')} - Cgyun`
       }
     }
   }
