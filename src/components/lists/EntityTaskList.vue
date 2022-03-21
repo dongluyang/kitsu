@@ -5,6 +5,9 @@
     <table class="datatable" ref="headerWrapper">
       <thead class="datatable-head">
         <tr class="datatable-row-header">
+          <th class="taskname">
+            {{ $t('tasks.fields.task_name') }}
+          </th>
           <th class="type">
             {{ $t('tasks.fields.task_type') }}
           </th>
@@ -47,6 +50,10 @@
           @click="selectTask(getTask(taskId))"
           v-for="taskId in sortedEntries"
         >
+
+          <td class="taskname">
+            {{ getTaskName(taskId) }}
+          </td>
           <task-type-cell
             class="type"
             :task-type="getTaskType(taskId)"
@@ -198,6 +205,13 @@ export default {
         : ''
     },
 
+    getTaskName (taskId) {
+      const task = this.getTask(taskId)
+      return task && task.task_name
+        ? task.task_name
+        : ''
+    },
+
     getTaskDuration (taskId) {
       const task = this.getTask(taskId)
       return task && task.duration
@@ -232,6 +246,11 @@ export default {
 .type {
   max-width: 250px;
   min-width: 250px;
+}
+
+.taskname {
+  max-width: 200px;
+  min-width: 200px;
 }
 
 .estimation {

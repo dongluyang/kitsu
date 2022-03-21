@@ -14,14 +14,14 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: process.env.KITSU_API_TARGET || 'http://baiduautodrivercgmesh.sdu.cgyun.cn:18889',
+        target: process.env.KITSU_API_TARGET || 'http://riggerscgmesh.cgyun.cn:18889',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api'
         }
       },
       '/socket.io': {
-        target: process.env.KITSU_EVENT_TARGET || 'http://baiduautodrivercgmesh.sdu.cgyun.cn:18889',
+        target: process.env.KITSU_EVENT_TARGET || 'http://riggerscgmesh.cgyun.cn:18889',
         ws: true
       }
     }

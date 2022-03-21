@@ -893,7 +893,8 @@
                 "start_date": "开始日期",
                 "task_status": "状态",
                 "task_status_short_name": "状态",
-                "task_type": "类型"
+                "task_type": "类型",
+                "task_name": "名称"
             },
             "colors": {
                 "title": "",

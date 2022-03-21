@@ -1012,6 +1012,7 @@ const mutations = {
         task_status_id: task.task_status_id,
         task_status_short_name:
           state.taskStatusMap.get(task.task_status_id).short_name,
+        task_name: task.task_name,
         priority: task.priority,
         estimation: task.estimation,
         duration: task.duration,
