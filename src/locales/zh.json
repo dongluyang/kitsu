@@ -198,12 +198,12 @@
             "reset_change_password_succeed": "您的密码已成功更改. 请返回到登录页面来使用它.",
             "reset_change_password_title": "输入新密码",
             "reset_password": "重置密码",
-            "reset_password_failed": "重置密码失败. 请核实您的电子邮箱.",
+            "reset_password_failed": "重置密码失败. 请核实您的用户名.",
             "reset_password_succeed": "已成功重置密码. 请查看您的收件箱.",
             "reset_password_title": "进入您的电子邮件来重置密码",
             "title": "登录Kitsu",
             "fields": {
-                "email": "电子邮箱",
+                "email": "用户名",
                 "password": "密码",
                 "password2": "再次输入密码"
             }
@@ -389,7 +389,7 @@
             "fields": {
                 "first_name": "名字",
                 "last_name": "姓氏",
-                "email": "电子邮箱",
+                "email": "用户名",
                 "phone": "电话",
                 "role": "职责",
                 "old_password": "当前密码",
@@ -400,7 +400,7 @@
             },
             "list": {
                 "name": "名称",
-                "email": "电子邮箱",
+                "email": "用户名",
                 "phone": "电话",
                 "role": "职责",
                 "active": "活动",

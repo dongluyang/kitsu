@@ -124,7 +124,6 @@
             'is-primary': true,
             'is-loading': isLoading
           }"
-          :disabled="!isValidEmail"
           @click="confirmClicked">
           {{ $t('main.confirmation') }}
         </a>

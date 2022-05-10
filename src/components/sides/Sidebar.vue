@@ -15,7 +15,7 @@
               v-if="organisation && organisation.has_avatar"
             />
             <img
-              src="../../assets/kitsu.png"
+              src="../../assets/logo.2ac5d758.png"
               v-else
             />
           </div>
@@ -220,11 +220,10 @@ export default {
 aside {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  width: 230px;
-  background-color: white;
-  padding: 15px;
+  width: 200px;
+  height: 100vh;
+  background-color: #304156;
   overflow-y: auto;
   z-index: 205;
   box-shadow: 1px 0px 6px rgba(0,0,0,0.2);
@@ -232,21 +231,26 @@ aside {
 
   h2 {
     text-transform: uppercase;
-    color: $grey;
+    color: #fff;
+    padding-left: 20px;
   }
 }
 
 aside.hidden-bar {
-  left: -230px;
+  left: -200px;
   transition: all 0.3s ease;
 }
-
+aside p{
+  height: 52px;
+}
 aside p a {
-  font-size: 1.4em;
-  color: $grey-strong;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #bfcbd9;
   display: flex;
   align-items: center;
   font-weight: 300;
+  line-height: 52px;
 
   svg {
     margin-right: 0.5em;
@@ -265,9 +269,14 @@ aside section {
 }
 
 .company-logo {
-  width: 200px;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  background-color: #2b2f3a;
   img {
-    border-radius: 5px;
+    height: 80px;
+    vertical-align: middle;
+    margin-right: 12px;
   }
 }
 
@@ -294,13 +303,13 @@ h2 {
 }
 
 p {
-  padding-left: 0.3em;
+  // padding-left: 0.3em;
 }
 
 p:hover {
   cursor: pointer;
-  background: $white-grey;
-  border-radius: 5px;
+  background: #2b2f3a;
+  // border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {
